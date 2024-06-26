@@ -1,0 +1,69 @@
+.container-main{
+width: 100%;
+height: 396px;
+top: 2316px;
+gap: 0px;
+opacity: 0px;
+border: 0.5px solid #FFFFFF;
+background: var(--Primary-Text, #12151C);
+
+
+}
+
+
+
+.company
+{
+margin-left: 115px;
+margin-top: 50px;
+font-family: Readex Pro;
+font-size: 20px;
+font-weight: 700;
+line-height: 25px;
+text-align: left;
+color: #FFFFFF;
+
+
+
+
+}
+
+.solutions{
+margin-left: 115px;
+margin-top: 50px;
+font-family: Readex Pro;
+font-size: 20px;
+font-weight: 700;
+line-height: 25px;
+text-align: left;
+color:#FFFFFF
+
+    
+
+}
+
+.community{
+    margin-left: 115px;
+    margin-top: 50px;
+    font-family: Readex Pro;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: left;
+    color:#FFFFFF
+}
+.subheading{
+margin-left: 100px;
+padding-top: 30px;
+font-family: Readex Pro;
+font-size: 20px;
+font-weight: 700;
+line-height: 20px;
+text-align: left;
+-webkit-text-fill-color:#FFFFFF;
+}
+
+.footerimage{
+padding-left: 40px;
+padding-top: 50px;
+}

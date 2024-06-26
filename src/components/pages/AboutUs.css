@@ -1,0 +1,50 @@
+
+.aboutus{
+    margin-left: 300px;
+    padding-bottom: 50px;
+    font-family: Readex Pro;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: left;
+    color: var(--Accent-1, #3E2B6D);
+
+    
+}
+.welcome{ 
+
+width: 488px;
+height: 308px;
+gap: 0px;
+opacity: 0px;
+
+    margin-left: 300px;
+    font-family: Readex Pro;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 25px;
+    text-align: left;
+    -webkit-text-fill-color: var(--Accent-2, #1A436A);
+
+
+}
+.Image{
+width: 776px;
+height: 479.19px;
+top: 768px;
+left: 70px;
+gap: 0px;
+border-radius: 12px 12px 12px 12px;
+opacity: 0px;
+margin-left: 180px;
+
+}
+.main-col{
+width: Fixed (536px)px;
+height: Hug (438px)px;
+top: 809px;
+left: 1325px;
+gap: 38px;
+opacity: 0px;
+
+}

@@ -1,0 +1,27 @@
+/* src/StatsSection.css */
+.stats-section {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+  }
+  
+  .stats-section .text-center {
+    padding: 20px;
+  }
+  
+  .stats-section h3 {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .stats-section p {
+    color: #007bff;
+  }
+  
+  .stats-section .text-center {
+    border-left: 1px solid #007bff;
+  }
+  
+  .stats-section .text-center:first-child {
+    border-left: none;
+  }
+  

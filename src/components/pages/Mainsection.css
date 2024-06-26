@@ -1,0 +1,61 @@
+.VideoIntro{
+margin-left: 220px;
+width: 866px;
+height: 475px;
+top: 191px;
+left: 640px;
+gap: 0px;
+border-radius: 12px 12px 12px 12px;
+opacity: 0px;
+
+    
+}
+h1{
+margin-bottom: 40px;
+font-size: 48px;
+font-weight: 700;
+line-height: 60px;
+text-align: left;
+}
+p{
+font-family: Readex Pro;
+font-size: 24px;
+font-weight: 500;
+line-height: 30px;
+text-align: left;
+-webkit-text-fill-color: #5A5C60;
+width: 488px;
+height: 150px;
+gap: 0px;
+opacity: 0px;
+}
+.getbtn1{
+     width: 248px;
+    height: 63px;
+    top: 592px;
+    left: 186px;
+    gap: 0px;
+    border-radius: 5px 5px 5px 5px;
+    opacity: 0px;
+    margin-right: 1000px;
+
+font-family: Inter;
+font-size: 20px;
+font-weight: 700;
+line-height: 24.2px;
+text-align: center;
+color: var(--Primary-Background, #FFFFFF);
+align-content: center;
+
+
+}
+
+.mycontainer{
+width: 587px;
+height: 386px;
+top: 269px;
+margin-left: 186px;
+gap: 0px;
+opacity: 0px;
+
+}

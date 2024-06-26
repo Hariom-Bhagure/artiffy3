@@ -1,0 +1,53 @@
+/* src/ContactUs.css */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+.contact-us {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin-top: 1000px;
+   
+  
+
+  }
+  
+  .contact-us h1 {
+    margin-bottom: 30px;
+    
+  }
+  
+  .contact-us form {
+    
+    width: 500px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-us .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .contact-us .btn-primary {
+    width: 100%;
+  }
+
+  .page-wrapper{
+    position:fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(189, 189, 189, 0.9);
+  }
+  

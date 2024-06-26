@@ -1,0 +1,40 @@
+/* src/FileUpload.css */
+.container {
+    max-width:100%;
+    align-items: center;
+  }
+  
+  .button-group {
+    justify-content: center;
+    align-items: center;
+    
+    
+ 
+  }
+  
+  .thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    background: #f0f0f0;
+  }
+  
+  .thumbnail canvas {
+    width: 100% !important;
+    height: 300px !important;
+  }
+  
+  .image-grid button {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .uploadfile{
+    
+    margin-left: 1000px;
+}
+.uploadfile1
+{
+  margin-top: 2px;
+  top: 70px;
+}
