@@ -1,5 +1,5 @@
 .container-main{
-width: 100%;
+width: 100rem;
 height: 396px;
 top: 2316px;
 gap: 0px;
@@ -14,7 +14,7 @@ background: var(--Primary-Text, #12151C);
 
 .company
 {
-margin-left: 115px;
+margin-left: 245px;
 margin-top: 50px;
 font-family: Readex Pro;
 font-size: 20px;
@@ -29,7 +29,7 @@ color: #FFFFFF;
 }
 
 .solutions{
-margin-left: 115px;
+margin-left: 255px;
 margin-top: 50px;
 font-family: Readex Pro;
 font-size: 20px;
@@ -43,7 +43,7 @@ color:#FFFFFF
 }
 
 .community{
-    margin-left: 115px;
+    margin-left: 155px;
     margin-top: 50px;
     font-family: Readex Pro;
     font-size: 20px;
@@ -53,7 +53,26 @@ color:#FFFFFF
     color:#FFFFFF
 }
 .subheading{
-margin-left: 100px;
+width: 300px;
+margin-left: 235px;
+padding-top: 30px;
+font-family: Readex Pro;
+font-size: 20px;
+font-weight: 700;
+line-height: 20px;
+text-align: left;
+-webkit-text-fill-color:#FFFFFF;
+
+}
+
+.footerimage{
+padding-left: 40px;
+padding-top: 50px;
+}
+
+.subheadingC{
+width: 300px;
+margin-left: 140px;
 padding-top: 30px;
 font-family: Readex Pro;
 font-size: 20px;
@@ -63,7 +82,15 @@ text-align: left;
 -webkit-text-fill-color:#FFFFFF;
 }
 
-.footerimage{
-padding-left: 40px;
-padding-top: 50px;
+
+@media (max-width:576px){
+    .container-main{
+        max-width: 100%;
+        height: auto;
+        margin-right: 10px;
+    }
+    .footerimage{
+margin-left: 100px;
+
+    }
 }

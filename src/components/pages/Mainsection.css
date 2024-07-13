@@ -1,6 +1,6 @@
 .VideoIntro{
-margin-left: 220px;
-width: 866px;
+margin-left: 210px;
+max-width: 866px;
 height: 475px;
 top: 191px;
 left: 640px;
@@ -8,7 +8,7 @@ gap: 0px;
 border-radius: 12px 12px 12px 12px;
 opacity: 0px;
 
-    
+
 }
 h1{
 margin-bottom: 40px;
@@ -30,7 +30,7 @@ gap: 0px;
 opacity: 0px;
 }
 .getbtn1{
-     width: 248px;
+    width: 248px;
     height: 63px;
     top: 592px;
     left: 186px;
@@ -54,8 +54,124 @@ align-content: center;
 width: 587px;
 height: 386px;
 top: 269px;
-margin-left: 186px;
+margin-left: px;
 gap: 0px;
 opacity: 0px;
 
+}
+
+.main-container{
+    position:static;
+    width: 100rem;
+}
+
+
+/* Mainsection.css */
+.mycontainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .getbtn1 {
+    margin-top: 20px;
+  }
+  
+  .VideoIntro {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 767px) {
+    .mycontainer {
+      text-align: center;
+      padding: 0 40px;
+      max-width: 400px;
+      height: 15px;
+    }
+    p{
+        max-width: 350px;
+        max-height: 400px;
+        font-size: small;
+        font-family: Readex Pro;
+        line-height: 30px;
+    }
+    h1{
+margin-bottom: 40px;
+font-size: 30px;
+font-weight: 700;
+line-height: 40px;
+text-align: left;}
+
+.getbtn1{
+width: 148px;
+   height: 60px;
+   top: 592px;
+   left: 186px;
+   gap: 0px;
+   border-radius: 5px 5px 5px 5px;
+   opacity: 0px;
+   margin-right: 1000px;
+
+
+
+    }
+
+    .VideoIntro {
+      width: 100%;
+      max-width: none; /* Ensure it takes the full width */
+      margin-top: 20px;
+      margin:20 40;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .VideoIntro {
+      width: 100%;
+      height: 475px;
+      max-width: 866px; 
+      /* Adjust as necessary */   }
+  }
+  
+  @media (min-width: 992px) {
+    .VideoIntro {
+      width: 100%;
+      max-width: 866; /* Adjust as necessary */
+    }
+  }
+
+  @media (min-width: 576px) and (max-width : 768px) {
+    .VideoIntro {
+        width: 100%;
+        max-width: 800px;
+        height: 475x;
+        
+}
+  }
+
+  @media (max-width: 576px) {
+        .VideoIntro {
+            width: 100%;
+            width: 1205px;
+            height: 475px;
+                  
+    }
+    .mycontainer{
+       max-width:900px;
+        height: 386px;
+        margin-left: 500px;
+    }
+    h1{
+  margin-bottom: 40px;
+font-size: 70px;
+font-weight: 700;
+line-height: 80px;
+text-align: left;
+align-content: center;
+}
+*{
+  width: auto;
+}
+    
+}
+p{
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import aboutUs from '../../assets/images/aboutUs.jpg';
 import './AboutusHeader.css';
-import Header from '../pages/Header';
 import StatsSection from './StatsSection';
 
 

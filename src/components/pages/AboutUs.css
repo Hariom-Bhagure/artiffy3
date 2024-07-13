@@ -8,26 +8,22 @@
     line-height: 60px;
     text-align: left;
     color: var(--Accent-1, #3E2B6D);
-
-    
 }
-.welcome{ 
 
+.welcome{ 
 width: 488px;
 height: 308px;
 gap: 0px;
 opacity: 0px;
-
-    margin-left: 300px;
-    font-family: Readex Pro;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 25px;
-    text-align: left;
-    -webkit-text-fill-color: var(--Accent-2, #1A436A);
-
-
+margin-left: 200px;
+font-family: Readex Pro;
+font-size: 20px;
+font-weight: 400;
+line-height: 25px;
+text-align: left;
+-webkit-text-fill-color: var(--Accent-2, #1A436A);
 }
+
 .Image{
 width: 776px;
 height: 479.19px;
@@ -36,7 +32,6 @@ left: 70px;
 gap: 0px;
 border-radius: 12px 12px 12px 12px;
 opacity: 0px;
-margin-left: 180px;
 
 }
 .main-col{
@@ -47,4 +42,32 @@ left: 1325px;
 gap: 38px;
 opacity: 0px;
 
+}
+.About-container{
+    width: 100rem;
+}
+
+
+
+
+/* RESPONCE FOR MOBILE DEVICE */
+
+@media (max-width:576px){
+
+    .Image{
+        max-width: 350px;
+        max-height: 200px;
+        margin: 0 1200px 50px 0px ;
+}
+.aboutus{
+    max-width: 300px;
+    margin: 0 2px 0 0;
+font-size: small;}
+
+.welcome{
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0px 120px 0px 0px;
+    font-family: Readex pro;
+}
 }

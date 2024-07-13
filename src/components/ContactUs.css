@@ -4,20 +4,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-
-
-
-
-
 .contact-us {
-  top: 50%;
+  top: 70%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-25%,-30%);
   margin-top: 1000px;
-   
-  
-
+  opacity: 1;
+  transition: opacity 0.9s ease-in-out;
   }
   
   .contact-us h1 {

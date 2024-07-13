@@ -7,7 +7,6 @@ function Footer() {
   return (
     <footer className="">
       <Container className='container-main container-fluid'>
-       
       
         <Row>
           <Col md={1} className='footerimage'> <image ><img src= {Logo} alt="Logo" width="100" height="100" /></image></Col>
@@ -33,7 +32,7 @@ function Footer() {
           </Col>
           <Col md={4}>
             <h5 className='community'>Community</h5>
-            <Nav className="flex-column subheading">
+            <Nav className="flex-column subheadingC">
               <Nav.Link href="#forum">Discussion Forum</Nav.Link>
               <Nav.Link href="#blog">Blog</Nav.Link>
               <Nav.Link href="#careers">Careers</Nav.Link>

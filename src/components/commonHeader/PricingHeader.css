@@ -7,16 +7,23 @@ h2{
     
         
     }
-    .para{
+    .para1{
     font-family: Readex Pro;
     font-size: 20px;
     font-weight: 600;
     line-height: 25px;
     text-align: center;
     align-content: center;
-    margin-left: 300px;
     width: 660px;
     height: 32px;
+    width: 660px;
+    height: 30px;
+    top: 1528px;
+    left: 714px;
+    gap: 0px;
+    margin-left: 470px;
+    opacity: 0px;
+    
     }
     
     .card1{
@@ -31,6 +38,8 @@ h2{
     opacity: 0px;
     border: 1px solid var(--Secondary-Background, #F6F6F6);
     box-shadow: 0px 4px 4px 0px #00000040;
+    margin-left: 300px;
+    
     
     
     }
@@ -45,22 +54,26 @@ h2{
         opacity: 0px;
         background-color: var(--Accent-1, #3E2B6D);
         box-shadow: 0px 4px 4px 0px #00000040;
-        border: 1px solid var(--Secondary-Background, #F6F6F6)
+        border: 1px solid var(--Secondary-Background, #F6F6F6);
+        margin-left: 119px;
     
         
     }
-    .card3{
-        top: 59px;
+    .card31{
+        top: 50px;
         width: 378px;
         height: 629px;
         /* top: 1579px; */
         /* left: 947px; */
         gap: 0px;
         border-radius: 10px 10px 10px 10px;
-        border: 1px 0px 0px 0px;
+        border: 1px 1px 1px 1px;
         opacity: 0px;
         border: 1px solid var(--Secondary-Background, #F6F6F6);
         box-shadow: 0px 4px 4px 0px #00000040;
+            right: 70px;
+        
+        
     
         
     
@@ -108,7 +121,7 @@ h2{
     
     }
     .getbtn2{
-        margin-top: 50px;
+    margin-top: 50px;
     color: var(--Primary-Text, #12151C);
     width: 216.99px;
     height: 63px;

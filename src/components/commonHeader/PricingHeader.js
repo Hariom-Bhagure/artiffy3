@@ -1,14 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import "./PricingHeader.css"
-import Header from '../pages/Header';
 
-function PricingHeader() {
+function PricingPlan() {
   return (
-    <>
     <Container className="my-5 text-center">
       <h2>Choose your plan</h2>
-      <p className='para'>14 days unlimited free trial. No Contract or credit card required.</p>
+      <p className='para1'>14 days unlimited free trial. No Contract or credit card required.</p>
       <Row className="mt-4">
         <Col xs={12} md={4} className="mb-4">
           <Card className='card1'>
@@ -29,7 +27,7 @@ function PricingHeader() {
           </Card>
         </Col>
         <Col xs={12} md={4} className="mb-4">
-          <Card className='card3'>
+          <Card className='card31'>
             <Card.Body >
               <Card.Title className='Title'>Advanced</Card.Title>
               <Card.Text className='subtext' >$199 per month<br />For advanced</Card.Text>
@@ -39,8 +37,7 @@ function PricingHeader() {
         </Col>
       </Row>
     </Container>
-    </>
   );
 }
 
-export default PricingHeader;
+export default PricingPlan;

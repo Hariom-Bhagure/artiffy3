@@ -1,24 +1,23 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import aboutUs from '../../assets/images/aboutUs.jpg'
-import './AboutUs.css'
-import Header from './Header';
+import { Col, Container, Row } from 'react-bootstrap';
+import aboutUs from '../../assets/images/aboutUs.jpg';
+import './AboutUs.css';
 
 
 
 function AboutUs() {
   return (
     <>
-    <Container className="my-5 " >
+    <Container className="my-5 About-container" >
       <Row className="align-items-center">
-        <Col md={6} className="text-center">
+        <Col md={6}  sm={12} className="text-center">
           <img 
             src={aboutUs}
             alt="3D Model" 
             className="img-fluid Image" 
           />
         </Col>
-        <Col md={6} className='main-col'>
+        <Col md={6} sm={12} className='main-col'>
           <h2 className='aboutus'>About Us</h2>
           <p className='welcome'>
             Welcome to our 3D Model Hub, where you can seamlessly upload, view, and interact with 3D models through augmented and virtual reality. Our platform empowers artists, designers, and enthusiasts to bring their 3D projects to life.

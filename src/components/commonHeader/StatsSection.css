@@ -2,6 +2,11 @@
 .stats-section {
     background-color: #f8f9fa;
     padding: 20px 0;
+    width: 1200px;
+    align-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
   }
   
   .stats-section .text-center {
@@ -11,10 +16,13 @@
   .stats-section h3 {
     color: #007bff;
     font-weight: bold;
+    text-align: center;
+    margin-right: 50px;
   }
   
   .stats-section p {
     color: #007bff;
+    margin-left:50px;
   }
   
   .stats-section .text-center {
@@ -23,5 +31,12 @@
   
   .stats-section .text-center:first-child {
     border-left: none;
+  }
+  .container.h3{
+    align-items: center;
+  }
+  .special{
+    padding-left: 40px;
+    width: 150px;
   }
   

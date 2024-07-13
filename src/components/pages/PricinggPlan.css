@@ -7,7 +7,7 @@ text-align: center;
 
     
 }
-.para1{
+.para11{
 font-family: Readex Pro;
 font-size: 20px;
 font-weight: 600;
@@ -19,15 +19,14 @@ height: 32px;
 width: 660px;
 height: 30px;
 top: 1528px;
-left: 714px;
+margin-left: 470px;
 gap: 0px;
-margin-left: 595px;
 opacity: 0px;
 
 }
 
 .card1{
-top: 50px;
+    margin-top: 5px;
 width: 378px;
 height: 629px;
 /* top: 1579px; */
@@ -38,7 +37,8 @@ border: 1px 0px 0px 0px;
 opacity: 0px;
 border: 1px solid var(--Secondary-Background, #F6F6F6);
 box-shadow: 0px 4px 4px 0px #00000040;
-margin-left: 300px;
+margin-right: 0px;
+right: 150px;
 
 
 
@@ -55,12 +55,12 @@ margin-left: 300px;
     background-color: var(--Accent-1, #3E2B6D);
     box-shadow: 0px 4px 4px 0px #00000040;
     border: 1px solid var(--Secondary-Background, #F6F6F6);
-    margin-left: 119px;
+    right: 30px;
 
     
 }
-.card3{
-    top: 50px;
+.card31{
+    margin-top: 5px;
     width: 378px;
     height: 629px;
     /* top: 1579px; */
@@ -71,6 +71,8 @@ margin-left: 300px;
     opacity: 0px;
     border: 1px solid var(--Secondary-Background, #F6F6F6);
     box-shadow: 0px 4px 4px 0px #00000040;
+    left: 10px;
+    
     
     
 
@@ -97,9 +99,6 @@ color: #FFFFFF;
 
     }
     
-
-
-
 .getbtn{
 width: 216.99px;
 height: 63px;
@@ -120,7 +119,7 @@ background: var(--Accent-1, #3E2B6D);
 
 }
 .getbtn2{
-    margin-top: 50px;
+margin-top: 50px;
 color: var(--Primary-Text, #12151C);
 width: 216.99px;
 height: 63px;
@@ -165,4 +164,34 @@ background-color:var(--Primary-Background, #FFFFFF);
     text-align: center;
     -webkit-text-fill-color: #000000;
 
+}
+.pricing-container{
+    width: 100rem;
+}
+
+
+
+@media (max-width : 576px) {
+    .card1{
+        margin: 0px 0 10px 0px;
+        max-width: 290px;
+        right: 280px;
+        margin-bottom: 50px;
+        max-height: 409px;
+    }
+
+    .card2{
+        margin: 0px 0 10px 0px;
+        max-width: 300px;
+        right: 100px;
+        margin-bottom: 50px;
+        max-height: 409px;
+    }
+    .card31{
+        margin: 0px 0 10px 0px;
+        max-width: 300px;
+        right: 100px;
+        margin-bottom: 80px;
+        max-height: 409px;
+    }
 }

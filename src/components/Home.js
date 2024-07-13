@@ -1,9 +1,9 @@
 import React from 'react'
-import Header from './pages/Header'
+import { ProgressBar } from 'react-bootstrap'
 import AboutUs from './pages/AboutUs'
+import Footer from './pages/Footer'
 import MainSection from './pages/mainSection'
 import PricingPlan from './pages/PricingPlan'
-import Footer from './pages/Footer'
 
 const Home = () => {
   return (
@@ -14,6 +14,7 @@ const Home = () => {
         <AboutUs /> <br/>
         <PricingPlan />
         <Footer />
+        <ProgressBar />
         
     </div>
   )
