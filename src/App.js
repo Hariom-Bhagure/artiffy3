@@ -11,8 +11,8 @@ import TransitionWrapper from './components/TransitionWrapper';
 import Upload from "./components/Upload";
 import AboutUsHeader from './components/commonHeader/AboutUsHeader';
 import PricingHeader from './components/commonHeader/PricingHeader';
-import UploadNewFile from './components/pages/UploadNewFile';
 import Header2 from './components/pages/Header';
+import UploadNewFile from './components/pages/UploadNewFile';
 
 
 
@@ -23,11 +23,11 @@ function App() {
 
   return (
     <>
-    <Router>
+    <Router basename='/Artiffy2'>
     <Header2 />
     <TransitionWrapper>
     <Switch>
-      <Route exact path = "/" component = {Home}/>
+      <Route exact path = "/artiffy2" component = {Home}/>
       <Route  path = "/Signup" component = {Signup} />
       <Route  path = "/about" component = {AboutUsHeader} />
       <Route  path = "/pricing" component = {PricingHeader} />
