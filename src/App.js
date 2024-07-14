@@ -23,11 +23,11 @@ function App() {
 
   return (
     <>
-    <Router basename='/Artiffy2'>
+    <Router basename='/artiffy3'>
     <Header2 />
     <TransitionWrapper>
     <Switch>
-      <Route exact path = "/artiffy2" component = {Home}/>
+      <Route exact path = "/artiffy3" component = {Home}/>
       <Route  path = "/Signup" component = {Signup} />
       <Route  path = "/about" component = {AboutUsHeader} />
       <Route  path = "/pricing" component = {PricingHeader} />
