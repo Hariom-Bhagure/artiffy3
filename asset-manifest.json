@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/artiffy3/static/css/main.19d66fa8.css",
+    "main.js": "/artiffy3/static/js/main.0bddde7a.js",
+    "static/js/453.3e6253ac.chunk.js": "/artiffy3/static/js/453.3e6253ac.chunk.js",
+    "static/media/Intro.gif": "/artiffy3/static/media/Intro.1036d147f1f1aa7a873c.gif",
+    "static/media/logo.png": "/artiffy3/static/media/logo.625b2561aada780d3c79.png",
+    "static/media/footor_Logo.png": "/artiffy3/static/media/footor_Logo.5d770e78ac31223a2d27.png",
+    "index.html": "/artiffy3/index.html",
+    "main.19d66fa8.css.map": "/artiffy3/static/css/main.19d66fa8.css.map",
+    "main.0bddde7a.js.map": "/artiffy3/static/js/main.0bddde7a.js.map",
+    "453.3e6253ac.chunk.js.map": "/artiffy3/static/js/453.3e6253ac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19d66fa8.css",
+    "static/js/main.0bddde7a.js"
+  ]
+}
