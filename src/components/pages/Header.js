@@ -175,7 +175,7 @@ function Header2() {
                         <Image src={`https://ui-avatars.com/api/?name=${email}&background=random`} width={50} height={50} roundedCircle className='Userpicture' />
                       )}
                     </Dropdown.Toggle>
-                    <Image src={menu_logo} onClick={handleShow} width={50} height={50} className='mt-2' />
+                    <Image src={menu_logo} onClick={handleShow} width={50} height={50} className='mt-2 barmenu' />
                     <Dropdown.Menu>
                       <Dropdown.Item href='/profile'>
                          Profile

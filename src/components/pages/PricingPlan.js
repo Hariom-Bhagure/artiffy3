@@ -5,7 +5,7 @@ import "./PricinggPlan.css"
 function PricingPlan() {
   return (
     <Container className="my-5 text-center pricing-container">
-      <h2>Choose your plan</h2>
+      <h2 className='chooseplan'>Choose your plan</h2>
       <p className='para11'>14 days unlimited free trial. No Contract or credit card required.</p>
       <Row className="mt-4">
         <Col xs={12} md={4} sm={12}className="mb-4">

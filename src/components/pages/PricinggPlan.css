@@ -19,9 +19,11 @@ h2 {
     gap: 0px;
     opacity: 0px;
 }
-
+.chooseplan{
+    margin-left: 50px;;
+}
 .card1 {
-    margin-top: 5px;
+    margin-top: 90px;
     width: 378px;
     height: 629px;
     gap: 0px;
@@ -35,6 +37,7 @@ h2 {
 .card2 {
     width: 378px;
     height: 687px;
+    margin-top: 90px;
     gap: 0px;
     border-radius: 10px 10px 10px 10px;
     background-color: var(--Accent-1, #3E2B6D);
@@ -44,7 +47,7 @@ h2 {
 }
 
 .card31 {
-    margin-top: 5px;
+    margin-top: 90px;
     width: 378px;
     height: 629px;
     gap: 0px;

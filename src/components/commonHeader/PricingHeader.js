@@ -5,7 +5,7 @@ import "./PricingHeader.css"
 function PricingPlan() {
   return (
     <Container className="my-5 text-center">
-      <h2>Choose your plan</h2>
+      <h2 className='coooseplan'>Choose your plan</h2>
       <p className='para1'>14 days unlimited free trial. No Contract or credit card required.</p>
       <Row className="mt-4">
         <Col xs={12} md={4} className="mb-4">

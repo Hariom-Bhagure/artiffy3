@@ -7,24 +7,24 @@ h2{
     
         
     }
-    .para1{
-    font-family: Readex Pro;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 25px;
-    text-align: center;
-    align-content: center;
-    width: 660px;
-    height: 32px;
-    width: 660px;
-    height: 30px;
-    top: 1528px;
-    left: 714px;
-    gap: 0px;
-    margin-left: 470px;
-    opacity: 0px;
-    
+    .para1 {
+        font-family: Readex Pro;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 25px;
+        text-align: center;
+        align-content: center;
+        width: 660px;
+        height: 32px;
+        margin-left: 590px;
+        gap: 0px;
+        opacity: 0px;
     }
+    .coooseplan{
+        margin-right: 50px;
+    }
+    
+    
     
     .card1{
     top: 50px;

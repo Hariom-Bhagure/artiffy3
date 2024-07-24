@@ -18,7 +18,7 @@
     margin-left: 50px;
     width: 662px;
     height: 50px;
-    gap: px;
+    gap: 10px;
     opacity: 0px;
     align-content: center;
     align-items: center;
@@ -224,8 +224,11 @@ text-align: center;
 
 .Userpicture {
   border-radius: 50%;
-  margin-right: 15px;
 }
+.barmenu{
+  margin-right: -100px;
+}
+
 
 .three-bar-menu .dropdown-toggle {
   border: none;
@@ -233,7 +236,7 @@ text-align: center;
 }
 
 .three-bar-menu .dropdown-menu {
-  right: 0;
+  margin-left: 10px;
   left: auto;
 }
 
