@@ -1,70 +1,76 @@
 /* src/FileUpload.css */
 .container {
-    max-width:100rem;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  
-  .button-group {
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .thumbnail {
-    width: 418px;
-    height: auto;
-    max-height: 28  3px;
-    object-fit: contain;
-    background: #f0f0f0;
-  }
-  
-  .thumbnail canvas {
-    width: 100% !important;
-    height: 300px !important;
-  }
-  
-  .image-grid button {
-    width: 100%;
-    margin-top: 10px;
-  }
-  .uploadfile{
-    
-    margin-left: 1000px;
+  position: relative;
+  max-width: 100%;
+  align-items: center;
+  justify-content: space-evenly;  
 }
-.uploadfile1
-{
+
+.button-group {
+  justify-content: center;
+  align-items: center;
+}
+
+.thumbnail {
+  width: 418px;
+  height: auto;
+  max-height: 283px;
+  object-fit: contain;
+  background: #f0f0f0;
+}
+
+.thumbnail canvas {
+  width: 100% !important;
+  height: 283px !important;
+
+}
+
+.image-grid button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.uploadfile {
+  margin-left: 1000px;
+  border: none;
+}
+
+.uploadfile1 {
   margin-top: 2px;
   top: 70px;
-  margin-left: 100px;
+  margin-left: 10px;
+  width: 286px;
+  height: 55px;
+  top: 186px;
+  left: 506px;
+  gap: 5px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
+  text-align: center;
 }
 
-.ARbtn{
-
-z-index: 2;
-margin-bottom: 60px;
-width: 222px;
-height: 54px;
-top: 515px;
-left: 1166px;
-gap: 0px;
-border-radius: 5px 5px 5px 5px;
-border: 0.5px 0px 0px 0px;
-opacity: 0px;
-background: var(--Secondary, #8AC7FF);
-color: #f8f9fa
-;
-
-
-
-
-font-family: Inter;
-font-size: 20px;
-font-weight: 400;
-line-height: 24.2px;
-text-align: center;
-
+.ARbtn {
+  z-index: 2;
+  margin-bottom: 60px;
+  width: 222px;
+  height: 54px;
+  top: 515px;
+  left: 1166px;
+  gap: 0px;
+  border-radius: 5px 5px 5px 5px;
+  border: 0.5px 0px 0px 0px;
+  opacity: 0px;
+  background: var(--Secondary, #8AC7FF);
+  color: #f8f9fa;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24.2px;
+  text-align: center;
 }
-
 
 .file-details h4 {
   margin-top: 0;
@@ -76,46 +82,122 @@ text-align: center;
   color: #6c757d;
 }
 
-
 .preview-container {
   position: relative;
 }
-
 
 .ar-button {
   position: absolute;
   bottom: 105px;
   align-content: center;
   right: 10px;
-  
-
 }
-.btnimg{
+
+.btnimg {
   margin-right: 10px;
   margin-bottom: 5px;
 }
+
 .dropdown-toggle::after {
   display: none; /* Hide default caret icon */
-
 }
+
 .context-menu {
   text-align: end;
   background: #f0f0f0;
-
 }
 
-
-
-.menuinner{
+.menuinner {
   background: var(--Secondary, #8AC7FF);
   flex-direction: column;
-  width: 20px;
+  text-align: center;
+  border-radius: 1px;
+  max-width: 200px;
+  max-height: 207px;
 }
-.innerbtn{
+
+.uploadbtnmini {
+  margin-right: 10px;
+  font-weight: bolder;
+  margin-bottom: 5px;
 }
 
+.modaltitle {
+  margin-top: 20px;
+  margin-right: 50px;
+  text-align: center;
+}
 
+.modalheading {
+  margin-left: 60px;
+  margin-top: 30px;
+  width: 328px;
+  height: 53px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: center;
+}
 
+.footrbtncncl {
+  width: 169.06px;
+  height: 60.25px;
+  top: 179.75px;
+  left: 76px;
+  gap: 0px;
+  border-radius: 5px 5px 5px 5px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24.2px;
+  text-align: center;
+}
 
+.footorbtndlt {
+  width: 169.06px;
+  height: 60.25px;
+  gap: 0px;
+  opacity: 0px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24.2px;
+  text-align: center;
+}
 
+.deletemodal {
+  width: 544px;
+  height: 272px;
+  border-radius: 5px 0px 0px 0px;
+}
 
+.colbtncncl {
+  margin-left: 15px;
+}
+
+.editbtn {
+  align-content: center;
+  margin-left: 15px;
+  width: 128px;
+  height: 41px;
+  border-radius: 5px 5px 5px 5px;
+  opacity: 0px;
+  background: var(--Primary-Background, #FFFFFF);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: center;
+}
+
+/* Adjust the gap between rows and columns */
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px; /* Adjust this value to reduce/increase the gap between rows */
+  column-gap: 10px; /* Adjust this value to reduce/increase the gap between columns */
+}

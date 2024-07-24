@@ -38,7 +38,6 @@ const Signup = () => {
             <Form.Group controlId="formBasicCheckbox" className="mt-3 text-start tc">
               <Form.Check className = "checkbx"type="checkbox" label="Creating an account means you’re ok with the terms and conditions"/>
             </Form.Group>
-           
             <Button variant="primary" type="submit" className="w-100 mt-4 signupBox">Sign Up</Button>
           </Form>
           <div className="mt-3 haveAccount">
@@ -47,12 +46,6 @@ const Signup = () => {
         </Col>
       </Row>
     </Container>
-
-
-
-
-
-
     </div>
   )
 }

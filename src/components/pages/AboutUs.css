@@ -1,73 +1,88 @@
+    .aboutus {
+        align-items: center;
+        width: 600px;
+        margin-left: 540px;
+        padding-bottom: 30px;
+        font-family: Readex Pro;
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 60px;
+        text-align: left;
+        color: var(--Accent-1, #3E2B6D);
 
-.aboutus{
-    margin-left: 300px;
-    padding-bottom: 50px;
-    font-family: Readex Pro;
-    font-size: 48px;
-    font-weight: 700;
-    line-height: 60px;
-    text-align: left;
-    color: var(--Accent-1, #3E2B6D);
-}
 
-.welcome{ 
-width: 488px;
-height: 308px;
+    }
+
+    .welcome { 
+        width: 564px;
+height: 480px;
+top: 877px;
+left: 1165px;
 gap: 0px;
 opacity: 0px;
-margin-left: 200px;
-font-family: Readex Pro;
-font-size: 20px;
+
+        margin-left: 200px;
+        font-family: Readex Pro;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 25px;
+        text-align: left;
+        -webkit-text-fill-color: var(--Accent-2, #1A436A);
+
+        font-family: Inter;
+font-size: 24px;
 font-weight: 400;
-line-height: 25px;
-text-align: left;
--webkit-text-fill-color: var(--Accent-2, #1A436A);
-}
+line-height: 29.05px;
+text-align: right;
 
-.Image{
-width: 776px;
-height: 479.19px;
-top: 768px;
-left: 70px;
-gap: 0px;
-border-radius: 12px 12px 12px 12px;
-opacity: 0px;
+    }
 
-}
-.main-col{
-width: Fixed (536px)px;
-height: Hug (438px)px;
-top: 809px;
-left: 1325px;
-gap: 38px;
-opacity: 0px;
+    .Image {
+        max-width: 913px;
+        border-radius: 12px;
+        opacity: 1;
+    }
 
-}
-.About-container{
-    width: 100rem;
-}
+    .main-col {
+        width: 536px;
+        height: auto;
+        gap: 38px;
+        opacity: 1;
+    }
 
+    .About-container {
+        width: 100rem;
+        padding: 20px;
+    }
 
+    /* Responsive for Tablets */
+    @media (max-width: 992px) {
+        .aboutus {
+            margin-left: 50px;
+            font-size: 36px;
+        }
+        .welcome {
+            margin-left: 50px;
+            width: auto;
+        }
+    }
 
-
-/* RESPONCE FOR MOBILE DEVICE */
-
-@media (max-width:576px){
-
-    .Image{
-        max-width: 350px;
-        max-height: 200px;
-        margin: 0 1200px 50px 0px ;
-}
-.aboutus{
-    max-width: 300px;
-    margin: 0 2px 0 0;
-font-size: small;}
-
-.welcome{
-    max-width: 400px;
-    max-height: 400px;
-    margin: 0px 120px 0px 0px;
-    font-family: Readex pro;
-}
-}
+    /* Responsive for Mobile Devices */
+    @media (max-width: 576px) {
+        .aboutus {
+            margin-left: 10px;
+            font-size: 24px;
+            text-align: center;
+            max-width: 100%;
+        }
+        .welcome {
+            margin-left: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        .Image {
+            max-width: 350px;
+            height: auto;
+            margin: 0 auto;
+        }
+    }

@@ -1,144 +1,171 @@
-.heading1{
-text-align: center;
-font-family: Readex Pro;
-width: 488px;
-height: 46px;
-margin-top: 20px;
+/* UploadNewFile.css */
 
-gap: 0px;
-opacity: 0px;
-
-}
-.heading5{
-text-align:center;
-font-size: 16px;
-font-family: Inter;
-font-size: 16px;
-font-weight: 400;
-line-height: 19.36px;
-text-align: center;
-width: 300px;
-
-}
-.logo-form{
-justify-content: center;
-font-family: Readex Pro;
-margin-top: 50px;
+.page-wrapper1 {
+        /* Add any background styling if necessary */
 }
 
-.inputone{
-width: 383px;
-height: 38px;
-top: 168px;
-left: 604px;
-gap: 0px;
-border-radius: 5px 5px 5px 5px;
-border: 0.5px 0.5px 0.5px 0.5px;
-opacity: 0px;
-text-align: center;
- 
-}
-.inputTwo{
-width: 383px;
-height: 82px;
-top: 250px;
-left: 604px;
-gap: 0px;
-border-radius: 5px 5px 5px 5px;
-border: 0.5px 0px 0px 0px;
-opacity: 0px;
-text-align: center;
-
-}
-.Main-sec{
-margin-top: 70px;
-opacity: 1;
-transition: opacity 0.9s ease-in-out;
-transform: translate(0%,0%);
-background-color:#ffff;
-width: 1100px;
-height:600px;
-padding-right: 200px;
-border-radius: 30px;
-}
-
-.imgholder{
-text-align: center;
-}
-
-.uploadbtn1{
-margin-left: 225px;
-margin-top: 70px;
-position: fixed;
-width: 158px;
-height: 38px;
-gap: 0px;
-opacity: 0px;
-}
-
-.page-wrapper1{
-position:fixed;
-left: 0;
-right: 0;
-bottom: 0;
-top: 0;
-background-color: rgba(189, 189, 189, 0.9);
-}
-.btn-x1{
-margin-top: 10px;
-border: none;
-background: none;
-}
-
-.Btnpopup{
-    
+.Main-sec {
+    display: flex;
     justify-content: center;
-    margin-left: 50px;
+    align-items: center;
+    height:540px;
+    width: 1100px;
+    opacity: 0px;
+    margin-left: 20px;
+    transform: translate(-9%,0%);
+
+    
+}
+.heading1 {
+    text-align: center;
     margin-bottom: 20px;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33.6px;
+    letter-spacing: -0.02em;
+    text-align: center;
     }
 
-.progressBar{
-    background: var(--Secondary, #8AC7FF);
-    border-radius:   10px 10px;
-   
+.logo-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
-.progressbox{
-    background: var(--Secondary, #8AC7FF);
+
+.imgholder {
+    text-align: center;
+    cursor: pointer;
+}
+
+.Uploadimg {
+    margin-left: 20px;}
+
+.heading5 {
+    text-align: center;
+}
+
+.inputone, .inputTwo {
+    margin-bottom: 15px;
+    width: 383px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+    text-align: center;
+    margin-right: 50px;
+    width: 383px;
+height: 38px;
+top: 168px;
+left: 448px;
+gap: 0px;
+border-radius: 5px 0px 0px 0px;
+border: 0.5px 0px 0px 0px;
+opacity: 0px;
+
+}
+
+.uploadbtn1 {
+    margin-top: 100px;
+    width: 158px;
+border-radius: 5px 5px 5px 5px;
+
+}
+.uploadmodal {
+    text-align: center;
+}
+
+.modalfootor {
+    justify-content: center;
+}
+
+.progressbox {
+    text-align: center;
+}
+
+.progressBar {
+    margin-top: 20px;
+}
+
+.custom-modal .modal-dialog {
+    width: 1100px;
+    max-width: none; /* Override Bootstrap's default max-width */
+}
+
+.custom-modal .modal-content {
+    height: 600px;
+    transform: translate(5%,0%);
+
+}
+
+@media (max-width: 768px) {
+    .custom-modal .modal-dialog {
+        width: 100%;
+    }
+
+    .custom-modal .modal-content {
+        height: auto;
+    }
+}
 
 
+.custom-progress-bar {
+    width: 373px;
+    height: 21.73px;
+    gap: 0px;
+    border-radius: 5px 5px 5px 5px;
+    opacity: 0px;
+    margin-left: 10px;
+
+    
+}
+  
+  .custom-progress-bar .progress-bar {
+    background: var(--Success, #02CA79);
+  
+    
+    
+}
+.loading-bar{
+    background:white;
+    width: 406px;
+height: 93px;
+top: 40px;
+left: 38px;
+gap: 0px;
+border-radius: 5px 5px 5px 5px;
+opacity: 0px;
+align-content: center;
+margin-left: 30px;
 
 }
-.Uploadheading{
-text-align: center;
-}
-.uploadingpara{
-    margin-left: 150px;
-text-align: center;
-width: 179px;
-height: 23px;
-top: 155px;
-left: 53px;
+.full-progressbar{
+
+    
+
+
+width: 501px;
+height: 238px;
 gap: 0px;
 opacity: 0px;
-font-family: Inter;
-font-size: 14px;
-font-weight: 400;
-line-height: 16.94px;
+background: var(--Secondary, #8AC7FF);
+border-radius: 5px 5px 5px 5px;
+}
+.uploadingcol{
+    align-content: end;
+    text-align: left;
+    margin-left: 10px;
+}
+.uploadingcol2{
+    text-align: right;
+    margin-right: 30px;
 
 }
-
-.uploadmodal{
-text-align: center;
-}
-.modalfootor{
-    justify-content: center;
-  
-}
-.okbtn{
-    width: 99px;
-height: 38px;
-top: 192px;
-left: 93px;
+.btncncl{
+width: 110px;
+height: 55.54px;
+top: 156px;
+left: 62px;
 gap: 0px;
 border-radius: 5px 5px 5px 5px;
 opacity: 0px;
@@ -149,6 +176,34 @@ font-size: 16px;
 font-weight: 500;
 line-height: 19.36px;
 text-align: center;
+margin-left: 30px;
 
+}
+.btnpause{
+    width: 110px;
+    height: 55.54px;
+    top: 157.46px;
+    left: 312px;
+    gap: 0px;
+    border-radius: 5px 5px 5px 5px;
+    opacity: 0px;
 
+    
+
+    font-family: Inter;
+font-size: 16px;
+font-weight: 500;
+line-height: 19.36px;
+text-align: center;
+margin-right: 30px;
+
+}
+.blur-background {
+  
+    position: fixed;
+    backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
 }

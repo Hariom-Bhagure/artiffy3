@@ -1,43 +1,46 @@
-import React, { useState, useRef } from 'react';
-import "./UploadNewFile.css";
-import { Row, Col, Image, Form, Button, Container, ProgressBar, Modal } from 'react-bootstrap';
+import React, { useRef, useState } from 'react';
+import { Button, Col, Container, Form, Image, Modal, ProgressBar, Row } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Logo from '../../assets/Logo/Upload_logo.png';
-import { X } from 'lucide-react';
-import axios from 'axios';
-import uploadpng from "../../assets/Logo/upload.png";
 import cancelpng from "../../assets/Logo/cancel.png";
+import uploadpng from "../../assets/Logo/upload.png";
+import './UploadNewFile.css';
 
 const UploadNewFile = ({ closeModal, onFileUpload }) => {
-    const [formData, setFormData] = useState({
-        title: '',
-        description: ''
-    });
-
+    const [formData, setFormData] = useState({ title: '', description: '' });
     const [selectedFile, setSelectedFile] = useState(null);
     const [loading, setLoading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [showProgressModal, setShowProgressModal] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
-    const xhrRef = useRef(null);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [successdakhawa,setSuccessdakhawa] =useState(false)
     const [showErrorModal, setShowErrorModal] = useState(false);
-    const [uploadedFiles, setUploadedFiles] = useState([]);
-
+    const xhrRef = useRef(null);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleFileChange = (e) => {
-        setSelectedFile(e.target.files[0]);
+    const handleFileSelect = () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.onchange = (e) => handleFileChange(e.target.files[0]);
+        input.click();
+    };
+
+    const handleFileChange = (file) => {
+        setSelectedFile(file);
         setUploadProgress(0);
     };
-   
-    
 
     const handleFileUpload = () => {
-        if (!selectedFile) return;
+        if (!selectedFile) {
+            toast.error("File not selected");
+            return;
+        }
 
         const uploadFormData = new FormData();
         uploadFormData.append('file', selectedFile);
@@ -65,18 +68,43 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
         xhr.onload = () => {
             setLoading(false);
             setShowProgressModal(false);
-               
+
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText);
-                onFileUpload(response, formData.title, formData.description); // Pass file info to parent component
-                setSelectedFile(null);
-                setFormData({ title: '', description: '' }); // Clear form data after upload
+                onFileUpload(response, formData.title, formData.description);
+                console.log("zal uplaod")
                 setShowSuccessModal(true);
+                setSelectedFile(null);
+                toast.success("File uploaded");
+
+                if(xhr.status===200){
+                        <Modal show={successdakhawa} onHide={handleCloseSuccessModal} centered>
+                <div className='uploadmodal'>
+                    <Modal.Header closeButton />
+                    <Modal.Body>
+                        <Image src={uploadpng} width={100} height={100} />
+                        <h4 className='Uploadheading'>Upload Successful</h4>
+                        <p className='uploadingpara'>Your file was successfully uploaded!</p>
+                    </Modal.Body>
+                    <Modal.Footer className='modalfootor'>
+                        <Button variant="primary" className='okbtn' onClick={handleCloseSuccessModal}>
+                            OK
+                        </Button>
+                    </Modal.Footer>
+                </div>
+            </Modal>
+                    
+
+
+
+                }else{
+                    console.log("nhi zal upload")
+                
+                }
             } else {
                 console.error('Error uploading file:', xhr.responseText);
                 setShowErrorModal(true);
             }
-            
         };
 
         xhr.onerror = () => {
@@ -107,87 +135,95 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
         setLoading(false);
         setShowProgressModal(false);
     };
-
     const handleCloseSuccessModal = () => setShowSuccessModal(false);
     const handleCloseErrorModal = () => setShowErrorModal(false);
 
     return (
         <>
-            <div className='page-wrapper1'></div>
-            <Container className='Main-sec'>
-                <button className='btn-x1' onClick={closeModal}><X /></button>
-                <Row>
-                    <Col lg={4}></Col>
-                    <Col lg={4}>
-                        <h1 className='heading1'>Upload New File</h1>
-                    </Col>
-                    <Col lg={4}></Col>
-                </Row>
-                <Row className='logo-form'>
-                    <Col lg={1}></Col>
-                    <Col lg={4} className='imgholder'>
-                        <Image className='Uploadimg' src={Logo} width={92} height={90} onClick={() => document.getElementById('file-input').click()} />
-                        <input
-                            type="file"
-                            id="file-input"
-                            style={{ display: 'none' }}
-                            onChange={handleFileChange}
-                        />
-                        <h5 className='heading5'>Select your file from device</h5>
-                    </Col>
-                    <Col lg={1}></Col>
-                    <Col lg={2}>
-                        <Row>
-                            <Form.Group controlId="formTitle" className='Form-title'>
-                                <Form.Label>Title</Form.Label>
-                                <Form.Control
-                                    className='inputone'
-                                    type="text"
-                                    name="title"
-                                    placeholder='Add a Title'
-                                    value={formData.title}
-                                    onChange={handleChange}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId="formDescription">
-                                <Form.Label>Description</Form.Label>
-                                <Form.Control
-                                    className='inputTwo'
-                                    type="text"
-                                    name="description"
-                                    placeholder='Add a description'
-                                    value={formData.description}
-                                    onChange={handleChange}
-                                />
-                            </Form.Group>
-                        </Row>
-                    </Col>
-                    <Col lg={2}></Col>
-                </Row>
-                <Row>
-                    <Col lg={6}></Col>
-                    <Col lg={3} className='mt-2'>
-                        <Button className='uploadbtn1' onClick={handleFileUpload}>Upload</Button>
-                    </Col>
-                    <Col lg={3}></Col>
-                </Row>
-            </Container>
+            <ToastContainer />
 
-            <Modal show={showProgressModal} onHide={handleCancelUpload} centered>
-                <div className='progressbox'>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Uploading File</Modal.Title>
-                    </Modal.Header>
+            <Modal show={true} onHide={closeModal} centered className='custom-modal'>
+                <Modal.Header closeButton>
+                    <Modal.Title className=''></Modal.Title>
+                </Modal.Header>
+                <div className='parentmodal'>
+                    <Modal.Body className='Main-sec'>
+                        <Container className=''>
+                            <Row>
+                                <Col lg={4}></Col>
+                                <Col lg={4}>
+                                    <h1 className='heading1'>Upload New File</h1>
+                                </Col>
+                                <Col lg={4}></Col>
+                            </Row>
+                            <Row className='logo-form'>
+                                <Col lg={1}></Col>
+                                <Col lg={4} className='imgholder'>
+                                    <Image className='Uploadimg' src={Logo} width={92} height={90} onClick={handleFileSelect} />
+                                    <h5 className='heading5'>Select your file from device</h5>
+                                </Col>
+                                <Col lg={1}></Col>
+                                <Col lg={2}>
+                                    <Row>
+                                        <Form.Group controlId="formTitle" className='Form-title'>
+                                            <Form.Label>Title</Form.Label>
+                                            <Form.Control
+                                                className='inputone'
+                                                type="text"
+                                                name="title"
+                                                placeholder='Add a Title'
+                                                value={formData.title}
+                                                onChange={handleChange}
+                                            />
+                                        </Form.Group>
+                                        <Form.Group controlId="formDescription">
+                                            <Form.Label>Description</Form.Label>
+                                            <Form.Control
+                                                className='inputTwo'
+                                                type="text"
+                                                name="description"
+                                                placeholder='Add a description'
+                                                value={formData.description}
+                                                onChange={handleChange}
+                                            />
+                                        </Form.Group>
+                                    </Row>
+                                </Col>
+                                <Col lg={2}></Col>
+                            </Row>
+                            <Row>
+                                <Col lg={6}></Col>
+                                <Col lg={3} className='mt-2'>
+                                    <Button className='uploadbtn1' onClick={handleFileUpload}>Upload</Button>
+                                </Col>
+                                <Col lg={3}></Col>
+                            </Row>
+                        </Container>
+                    </Modal.Body>
+                </div>
+            </Modal>
+
+            <Modal show={showProgressModal} onHide={handleCancelUpload} centered className='blur-background'>
+                <div className='full-progressbar'>
                     <Modal.Body className='progressBar'>
                         {loading && (
                             <>
-                                <div className="text-center mb-3 ">{uploadProgress}%</div>
-                                <ProgressBar now={uploadProgress} label={`${uploadProgress}%`} className='' />
-                                <div className="d-flex justify-content-between mt-3 ">
-                                    <Button variant="light" onClick={handleCancelUpload}>
+                                <div className="text-center mb-3"></div>
+                                <div className='loading-bar'>
+                                    <Row>
+                                        <Col className='uploadingcol'><h5>Uploading.....</h5></Col>
+                                        <Col className='uploadingcol2'><h5>{uploadProgress}%</h5></Col>
+                                    </Row>
+                                    <ProgressBar
+                                        now={uploadProgress}
+                                        className='custom-progress-bar'
+                                    />
+                                </div>
+                                <div className="d-flex justify-content-between mt-3">
+                                    <Button variant="light" onClick={handleCancelUpload} className='btncncl'>
                                         Cancel
                                     </Button>
-                                    <Button variant="light" onClick={handlePauseUpload}>
+                                    <Button variant="light" onClick={handlePauseUpload} className='btnpause'>
                                         {isPaused ? 'Resume' : 'Pause'}
                                     </Button>
                                 </div>
@@ -196,7 +232,8 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
                     </Modal.Body>
                 </div>
             </Modal>
-            <Modal show={showSuccessModal} onHide={handleCloseSuccessModal} centered>
+
+            <Modal show={successdakhawa} onHide={handleCloseSuccessModal} centered>
                 <div className='uploadmodal'>
                     <Modal.Header closeButton />
                     <Modal.Body>
@@ -205,7 +242,7 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
                         <p className='uploadingpara'>Your file was successfully uploaded!</p>
                     </Modal.Body>
                     <Modal.Footer className='modalfootor'>
-                        <Button variant="primary okbtn" onClick={handleCloseSuccessModal}>
+                        <Button variant="primary" className='okbtn' onClick={handleCloseSuccessModal}>
                             OK
                         </Button>
                     </Modal.Footer>

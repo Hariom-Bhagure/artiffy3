@@ -1,0 +1,64 @@
+.sidebar {
+width: 127px;
+height: auto;
+gap: 0px;
+opacity: 0px;
+position:fixed;
+
+  }
+  
+  .sidebar-logo {
+    width: 150px; /* Adjust the size as needed */
+    margin-bottom: 20px;
+  }
+  
+  .search-section {
+    margin-bottom: 20px;
+  }
+  
+  .search-group {
+    position: relative;
+  }
+  
+  .search-icon {
+    position: absolute;
+    margin-top: 2px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    color: #888; /* Change this to your desired icon color */
+  }
+  
+  .search-input {
+    padding-left: 50px; /* Adjust this to make space for the icon */
+    border: 1px solid #568DFC;
+    width: 351px;
+border: 1px 0px 0px 0px;
+opacity: 0px;
+width: 200px;
+height: 68px;
+top: 186px;
+left: 38px;
+gap: 0px;
+border-radius: 30px 30px 30px 30px;
+border: 1px 0px 0px 0px;
+opacity: 0px;
+margin-top: 20px;
+
+    
+  }
+  
+  .sidebar-button {
+    width: 200px;
+    margin: 10px 10px;
+    color: #333; /* Change this to your desired text color */
+  }
+  
+  .sidebar-button:hover {
+    background-color: #e9ecef; /* Change this to your desired hover color */
+    color: #007bff; /* Change this to your desired hover text color */
+  }
+  .flex-column{
+    width: 400px;
+  }
+  

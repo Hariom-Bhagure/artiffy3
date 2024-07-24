@@ -9,6 +9,7 @@
     
 }
 .welcome{
+    
     font-family: Readex Pro;
     font-size: 20px;
     font-weight: 400;
@@ -19,12 +20,11 @@
 
 }
 .Image{
-width: 776px;
-height: 479.19px;
+width: 913px;
+height: 564px;
 top: 768px;
 left: 70px;
 gap: 0px;
-border-radius: 12px 12px 12px 012px;
+border-radius: 12px 12px 12px 12px;
 opacity: 0px;
-
 }

@@ -1,10 +1,10 @@
-// routes/auth.js
+
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const router = express.Router();
 
-const JWT_SECRET = 'hariom'; // Replace with your secret key
+const JWT_SECRET = 'hariom'; 
 
 // Signup route
 router.post('/signup', async (req, res) => {

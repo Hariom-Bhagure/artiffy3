@@ -7,7 +7,6 @@ function Footer() {
   return (
     <footer className="">
       <Container className='container-main container-fluid'>
-      
         <Row>
           <Col md={1} className='footerimage'> <image ><img src= {Logo} alt="Logo" width="100" height="100" /></image></Col>
           <Col className='colm' md={3}>

@@ -1,52 +1,39 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Route, BrowserRouter as Router, Switch, } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
+import AboutUsHeader from './components/commonHeader/AboutUsHeader';
+import PricingHeader from './components/commonHeader/PricingHeader';
 import ContactUs from './components/ContactUs';
 import Home from './components/Home';
-import Profile from './components/Profile';
+import Header2 from './components/pages/Header';
+import Profile from './components/pages/Profile';
+import UploadNewFile from './components/pages/UploadNewFile';
 import Services from './components/Services';
 import Signup from './components/Signup';
 import TransitionWrapper from './components/TransitionWrapper';
-import Upload from "./components/Upload";
-import AboutUsHeader from './components/commonHeader/AboutUsHeader';
-import PricingHeader from './components/commonHeader/PricingHeader';
-import Header2 from './components/pages/Header';
-import UploadNewFile from './components/pages/UploadNewFile';
-
-
-
-
-
+import Upload from './components/Upload';
 
 function App() {
-
   return (
     <>
-    <Router basename='/artiffy3'>
-    <Header2 />
-    <TransitionWrapper>
-    <Switch>
-      <Route exact path = "/artiffy3" component = {Home}/>
-      <Route  path = "/Signup" component = {Signup} />
-      <Route  path = "/about" component = {AboutUsHeader} />
-      <Route  path = "/pricing" component = {PricingHeader} />
-      <Route  path = "/contactus" component = {ContactUs} />
-      <Route  path = "/services" component = {Services} />
-      <Route  path = "/upload" component = {Upload} />
-      <Route  path = "/profile" component = {Profile} />
-      <Route  path = "/uploadnewfile" component = {UploadNewFile} />
-    </Switch>
-    </TransitionWrapper>    
-    </Router>
-    
-    
-    
-    
+      <Router>
+        <Header2 />
+        <TransitionWrapper>
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/about" element={<AboutUsHeader />} />
+            <Route path="/pricing" element={<PricingHeader />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/upload" element={<Upload />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/uploadnewfile" element={<UploadNewFile />} />
+          </Routes>
+        </TransitionWrapper>
+      </Router>
     </>
-    
-
-    
   );
 }
 
