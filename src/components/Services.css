@@ -1,0 +1,33 @@
+.coming-soon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .working-team-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color:grey
+  }
+  
+  .subtitle {
+    font-family: 'Readex Pro', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  

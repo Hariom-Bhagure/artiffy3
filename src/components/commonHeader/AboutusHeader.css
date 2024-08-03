@@ -1,30 +1,70 @@
-.aboutus{
-    font-family: Readex Pro;
+/* General Styles */
+.aboutus {
+    font-family: 'Readex Pro', sans-serif;
     font-size: 48px;
     font-weight: 700;
     line-height: 60px;
     text-align: left;
     color: var(--Accent-1, #3E2B6D);
-
-    
 }
-.welcome{
-    
-    font-family: Readex Pro;
+
+.welcome {
+    font-family: 'Readex Pro', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 25px;
     text-align: left;
     -webkit-text-fill-color: var(--Accent-2, #1A436A);
-
-
 }
-.Image{
-width: 913px;
-height: 564px;
-top: 768px;
-left: 70px;
-gap: 0px;
-border-radius: 12px 12px 12px 12px;
-opacity: 0px;
+
+.Image {
+    width: 80%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.About-container {
+    width: 100%;
+    padding: 20px;
+}
+
+/* Responsive Styles for Medium Devices (tablets) */
+@media (max-width: 992px) {
+    .About-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .aboutus, .welcome {
+        text-align: center;
+        width: 100%;
+    }
+    .Image {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+/* Responsive for Mobile Devices (small devices) */
+@media (max-width: 576px) {
+    .aboutus {
+        font-size: 24px;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .welcome {
+        font-size: 16px;
+        text-align: center;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .Image {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .About-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

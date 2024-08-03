@@ -1,42 +1,51 @@
 /* src/StatsSection.css */
 .stats-section {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    width: 1200px;
-    align-content: center;
-    text-align: center;
-    align-items: center;
-    width: 100%;
-  }
-  
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.stats-section .text-center {
+  padding: 20px;
+}
+
+.stats-section h3 {
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stats-section p {
+  color: #007bff;
+  margin: 0;
+}
+
+.stats-section .text-center {
+  border-left: 1px solid #007bff;
+}
+
+.stats-section .text-center:first-child {
+  border-left: none;
+}
+
+@media (max-width: 767px) {
   .stats-section .text-center {
-    padding: 20px;
-  }
-  
-  .stats-section h3 {
-    color: #007bff;
-    font-weight: bold;
-    text-align: center;
-    margin-right: 0px;
-  }
-  
-  .stats-section p {
-    color: #007bff;
-    margin-left:100px;
-  }
-  
-  .stats-section .text-center {
-    border-left: 1px solid #007bff;
-  }
-  
-  .stats-section .text-center:first-child {
     border-left: none;
+    border-top: 1px solid #007bff;
   }
-  .container.h3{
-    align-items: center;
+
+  .stats-section .text-center:first-child {
+    border-top: none;
   }
-  .special{
-    padding-left: 50px;
-    width: 150px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .stats-section {
+    padding: 40px 0;
   }
-  
+}
+
+.special {
+  padding-left: 0;
+}

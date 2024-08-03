@@ -5,9 +5,9 @@ import './Mainsection.css';
 
 function MainSection() {
   return (
-    <Container className=" my-5 main-container">
+    <Container className="my-5 main-container">
       <Row className="align-items-center">
-        <Col md={6} sm={12} className="text-center mycontainer">
+        <Col md={6} sm={12} className="text-center text-md-left mycontainer">
           <h1>Upload, Visualize, Experience</h1>
           <p>
             Effortlessly upload your 3D models and instantly visualize them in augmented reality. Experience a new dimension of interaction and immersion with our cutting-edge AR platform for 3D artists.

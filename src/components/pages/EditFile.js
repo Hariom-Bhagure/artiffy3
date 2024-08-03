@@ -3,12 +3,11 @@ import { Modal, Button, Container, Row, Col, Form, Image } from 'react-bootstrap
 import Logo from '../../assets/Logo/Upload_logo.png';
 import './UploadNewFile.css';
 
-const EditFile = ({onFileEdit, existingData ,showModal,closeModal }) => {
+const EditFile = ({ onFileEdit, existingData = {}, showModal, closeModal }) => {
     const [formData, setFormData] = useState({
         title: existingData.title || '',
         description: existingData.description || ''
     });
-
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,8 +28,6 @@ const EditFile = ({onFileEdit, existingData ,showModal,closeModal }) => {
     const handleSave = () => {
         onFileEdit(formData);
     };
-
-   
 
     return (
         <>

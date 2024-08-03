@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
 import { Modal, Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { X } from 'lucide-react'; // Assuming you have imported X from lucide-react
+import axios from 'axios';
 import './ContactUs.css';
+import { toast, ToastContainer } from 'react-toastify';
 
 const ContactUs = ({ closeModal }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: ''
-  });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
+  const handleContact = (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to a server)
-    console.log('Form submitted:', formData);
-    // Optionally, clear form fields after submission
-    setFormData({
-      name: '',
-      email: '',
-      phone: ''
-    });
+    axios.post('http://localhost:4000/contactus', { name, email, phone })
+      .then(result => {
+        console.log(result);
+        toast.success('Form submitted successfully!');
+        // Optionally, clear form fields after submission
+        setName('');
+        setEmail('');
+        setPhone('');
+      })
+      .catch(err => {
+        console.error(err);
+        toast.error('Form not submitted, please try again.');
+      });
   };
 
   return (
     <>
+      <ToastContainer />
       <Modal show={true} onHide={closeModal} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
           <Modal.Title>Contact Us</Modal.Title>
@@ -37,15 +38,14 @@ const ContactUs = ({ closeModal }) => {
           <Container>
             <Row>
               <Col md={12}>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={handleContact}>
                   <Form.Group controlId="formName">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Enter your name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </Form.Group>
 
@@ -54,9 +54,8 @@ const ContactUs = ({ closeModal }) => {
                     <Form.Control
                       type="email"
                       placeholder="Enter your email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </Form.Group>
 
@@ -65,9 +64,8 @@ const ContactUs = ({ closeModal }) => {
                     <Form.Control
                       type="tel"
                       placeholder="Enter your phone number"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
                     />
                   </Form.Group>
 

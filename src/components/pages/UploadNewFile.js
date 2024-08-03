@@ -15,7 +15,6 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
     const [showProgressModal, setShowProgressModal] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
-    const [successdakhawa,setSuccessdakhawa] =useState(false)
     const [showErrorModal, setShowErrorModal] = useState(false);
     const xhrRef = useRef(null);
 
@@ -72,35 +71,9 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText);
                 onFileUpload(response, formData.title, formData.description);
-                console.log("zal uplaod")
                 setShowSuccessModal(true);
                 setSelectedFile(null);
                 toast.success("File uploaded");
-
-                if(xhr.status===200){
-                        <Modal show={successdakhawa} onHide={handleCloseSuccessModal} centered>
-                <div className='uploadmodal'>
-                    <Modal.Header closeButton />
-                    <Modal.Body>
-                        <Image src={uploadpng} width={100} height={100} />
-                        <h4 className='Uploadheading'>Upload Successful</h4>
-                        <p className='uploadingpara'>Your file was successfully uploaded!</p>
-                    </Modal.Body>
-                    <Modal.Footer className='modalfootor'>
-                        <Button variant="primary" className='okbtn' onClick={handleCloseSuccessModal}>
-                            OK
-                        </Button>
-                    </Modal.Footer>
-                </div>
-            </Modal>
-                    
-
-
-
-                }else{
-                    console.log("nhi zal upload")
-                
-                }
             } else {
                 console.error('Error uploading file:', xhr.responseText);
                 setShowErrorModal(true);
@@ -135,72 +108,65 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
         setLoading(false);
         setShowProgressModal(false);
     };
+
     const handleCloseSuccessModal = () => setShowSuccessModal(false);
     const handleCloseErrorModal = () => setShowErrorModal(false);
 
     return (
         <>
             <ToastContainer />
-
             <Modal show={true} onHide={closeModal} centered className='custom-modal'>
                 <Modal.Header closeButton>
-                    <Modal.Title className=''></Modal.Title>
+                    <Modal.Title>Upload New File</Modal.Title>
                 </Modal.Header>
-                <div className='parentmodal'>
-                    <Modal.Body className='Main-sec'>
-                        <Container className=''>
+                <Modal.Body className='Main-sec'>
+                    <Container>
+                        <Row className='text-center mb-4'>
+                            <Col xs={12}>
+                                <h1 className='heading1'>Upload New File</h1>
+                            </Col>
+                        </Row>
+                        <Row className='logo-form'>
+                            <Col xs={12} md={6} className='imgholder d-flex'>
+                                <Image className='Uploadimg' src={Logo} width={92} height={90} onClick={handleFileSelect} />
+                                
+                                
+                            </Col>
                             <Row>
-                                <Col lg={4}></Col>
-                                <Col lg={4}>
-                                    <h1 className='heading1'>Upload New File</h1>
-                                </Col>
-                                <Col lg={4}></Col>
-                            </Row>
-                            <Row className='logo-form'>
-                                <Col lg={1}></Col>
-                                <Col lg={4} className='imgholder'>
-                                    <Image className='Uploadimg' src={Logo} width={92} height={90} onClick={handleFileSelect} />
-                                    <h5 className='heading5'>Select your file from device</h5>
-                                </Col>
-                                <Col lg={1}></Col>
-                                <Col lg={2}>
-                                    <Row>
-                                        <Form.Group controlId="formTitle" className='Form-title'>
-                                            <Form.Label>Title</Form.Label>
-                                            <Form.Control
-                                                className='inputone'
-                                                type="text"
-                                                name="title"
-                                                placeholder='Add a Title'
-                                                value={formData.title}
-                                                onChange={handleChange}
-                                            />
-                                        </Form.Group>
-                                        <Form.Group controlId="formDescription">
-                                            <Form.Label>Description</Form.Label>
-                                            <Form.Control
-                                                className='inputTwo'
-                                                type="text"
-                                                name="description"
-                                                placeholder='Add a description'
-                                                value={formData.description}
-                                                onChange={handleChange}
-                                            />
-                                        </Form.Group>
-                                    </Row>
-                                </Col>
-                                <Col lg={2}></Col>
-                            </Row>
-                            <Row>
-                                <Col lg={6}></Col>
-                                <Col lg={3} className='mt-2'>
-                                    <Button className='uploadbtn1' onClick={handleFileUpload}>Upload</Button>
-                                </Col>
-                                <Col lg={3}></Col>
-                            </Row>
-                        </Container>
-                    </Modal.Body>
-                </div>
+                                <Col><h5 className='heading5'>Select your file from device</h5></Col>
+                                </Row>
+                            <Col xs={12} md={6} className='input-container'>
+                                <Form.Group controlId="formTitle" className='Form-title'>
+                                    <Form.Label>Title</Form.Label>
+                                    <Form.Control
+                                        className='inputone'
+                                        type="text"
+                                        name="title"
+                                        placeholder='Add a Title'
+                                        value={formData.title}
+                                        onChange={handleChange}
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formDescription">
+                                    <Form.Label>Description</Form.Label>
+                                    <Form.Control
+                                        className='inputTwo'
+                                        type="text"
+                                        name="description"
+                                        placeholder='Add a description'
+                                        value={formData.description}
+                                        onChange={handleChange}
+                                    />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                        <Row className='text-center'>
+                            <Col xs={12}>
+                                <Button className='uploadbtn1' onClick={handleFileUpload}>Upload</Button>
+                            </Col>
+                        </Row>
+                    </Container>
+                </Modal.Body>
             </Modal>
 
             <Modal show={showProgressModal} onHide={handleCancelUpload} centered className='blur-background'>
@@ -210,9 +176,9 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
                             <>
                                 <div className="text-center mb-3"></div>
                                 <div className='loading-bar'>
-                                    <Row>
-                                        <Col className='uploadingcol'><h5>Uploading.....</h5></Col>
-                                        <Col className='uploadingcol2'><h5>{uploadProgress}%</h5></Col>
+                                    <Row className='text-center'>
+                                        <Col><h5>Uploading.....</h5></Col>
+                                        <Col><h5>{uploadProgress}%</h5></Col>
                                     </Row>
                                     <ProgressBar
                                         now={uploadProgress}
@@ -233,7 +199,7 @@ const UploadNewFile = ({ closeModal, onFileUpload }) => {
                 </div>
             </Modal>
 
-            <Modal show={successdakhawa} onHide={handleCloseSuccessModal} centered>
+            <Modal show={showSuccessModal} onHide={handleCloseSuccessModal} centered>
                 <div className='uploadmodal'>
                     <Modal.Header closeButton />
                     <Modal.Body>

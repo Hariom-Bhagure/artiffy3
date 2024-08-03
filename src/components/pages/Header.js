@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, ButtonGroup, Col, Container, Dropdown, Form, Image, Modal, Nav, Navbar, Offcanvas, Row } from 'react-bootstrap';
+import { Button, ButtonGroup, Col, Container, Dropdown, Form, Image, Modal, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { CgProfile } from "react-icons/cg";
 import { FaFacebook, FaGoogle } from 'react-icons/fa';
 import { IoSearch } from "react-icons/io5";
@@ -14,16 +14,9 @@ import Logo from "../../assets/Logo/logo.png";
 import ContactUs from '../ContactUs';
 import EditFile from './EditFile';
 import './Header.css';
-import Profile from './Profile'; // Import the Profile component
-
-
-
-  
-
 
 function Header2() {
   const navigate = useNavigate();
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -37,9 +30,11 @@ function Header2() {
   const [existingData, setExistingData] = useState({ title: 'Sample Title', description: 'Sample Description' });
   const [showModal, setShowModal] = useState(false);
 
-
+  // Fetch user info on component mount if a token is present
   useEffect(() => {
     const token = localStorage.getItem('userToken');
+    console.log('Token after refresh:', token);
+
     if (token) {
       setIsLoggedIn(true);
       axios.get('http://localhost:4000/user/profile', {
@@ -48,46 +43,83 @@ function Header2() {
         }
       })
       .then(response => {
-        setUserInfo(response.data); // Assuming backend returns user info in response.data
+        setUserInfo(response.data); // Set user info
       })
       .catch(error => {
         console.error('Error fetching user profile:', error);
+        // Handle invalid token scenario
+        setIsLoggedIn(false);
+        localStorage.removeItem('userToken');
       });
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:4000/Signup', { email, password })
-      .then(result => {
-        console.log(result);
-        navigate('/home');
-        setShowLoginModal(false);
-        setShowSignupModal(false);
-        setIsLoggedIn(true);
-        localStorage.setItem('userToken', result.data.token); // Store token in localStorage
-      })
-      .catch(err => console.log(err));
+    if (!email || !password) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+    const handleSignup = (e) => {
+      e.preventDefault();
+      if (!email || !password) {
+        toast.error('Please fill in all fields');
+        return;
+      }
+      axios.post('http://localhost:4000/signup', { email, password })
+        .then(result => {
+          const { token } = result.data;
+          if (token) {
+            localStorage.setItem('userToken', token); // Store token in localStorage
+            console.log(token)
+            setShowLoginModal(false);
+            setShowSignupModal(false);
+            setIsLoggedIn(true);
+            navigate('/');
+            toast.success('Signup successful!');
+          } else {
+            toast.error('Signup failed. No token received.');
+          }
+        })
+        .catch(err => {
+          console.log(err);
+          toast.error('Signup failed. Please try again.');
+        });
+    }
+    
   }
 
   const handleSignIn = (e) => {
     e.preventDefault();
+    if (!email || !password) {
+      toast.error('Please fill in all fields');
+      return;
+    }
     axios.post('http://localhost:4000/login', { email, password })
-    .then(result => {
-      console.log(result)
-      toast.error("wrong credentials"); 
-      if (result.data ==="success"){
-        navigate("/home");
-      }
-    })
+      .then(result => {
+        const { token } = result.data;
+        if (token) {
+          localStorage.setItem('userToken', token); // Store token in localStorage
+          setShowLoginModal(false);
+          setIsLoggedIn(true);
+          navigate("/");
+          toast.success('Login successful!');
+        } else {
+          toast.error('Login failed. No token received.');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error('Login failed. Please try again.');
+      });
   }
-
+  
 
   const handleLogout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem('userToken'); // Remove token from localStorage
     setUserInfo(null); // Clear user info state
-    navigate('/home');
+    navigate('/');
   }
 
   const handleToggle = () => {
@@ -112,231 +144,128 @@ function Header2() {
 
   return (
     <>
-              <ToastContainer />
-
-      <div className="logo" onClick={handleShow}>
-        <i className="fas fa-bars"></i>
-      </div>
-
-      <Offcanvas show={show} onHide={handleClose} placement="end" className="sidebarright">
-        <Offcanvas.Header closeButton className='sidebarheader'>
-          <Offcanvas.Title>Menu</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-        <Col>
-          <Form>
-              <Form.Group controlId="formSearch" className="search-group">
-                <IoSearch className="search-icon" fontSize={24}/>
-                <Form.Control type="text" placeholder="Search" className="search-input" />
-              </Form.Group>
-            </Form>
-          </Col>
-          <Nav className="flex-column">
-            <Nav.Link href="#home">
-            <RiHome2Line size={24} className='mb-1' /> Modals</Nav.Link>
-            <Nav.Link href="#artify">
-            <PiUploadSimpleBold size={24} className='mb-1' /> Uploads</Nav.Link>
-            <Nav.Link href="#contact">
-            <CgProfile  size={24} className='mb-1'/>  Profile</Nav.Link> 
-            {isLoggedIn && (
-              <Nav.Link onClick={handleLogout}>
-                <MdOutlineLogout size={24} className='mb-1' /> Log out</Nav.Link>
-            )}
-          </Nav>
-        </Offcanvas.Body>
-      </Offcanvas>
-
+      <ToastContainer />
       <Navbar bg="" expand="lg" className='navGroup'>
-        <Container className='hello'>
+        <Container>
           <Navbar.Brand>
             <img src={Logo} alt="Logo" width="100" height="100" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto nav1">
-              <Link to="/home" className='navbtn'>Home</Link>
+            <Nav className="me-auto">
+              <Link to="/" className='navbtn'>Home</Link>
               <Link to="/about" className='navbtn'>About</Link>
               <Link to="/pricing" className='navbtn'>Pricing</Link>
               <Link className='navbtn' onClick={() => setShowModal(true)}>Contact us</Link>
-              {showModal && <ContactUs closeModal={() => setShowModal(false)} />}
-              <Link to="/service" className='navbtn'>Services</Link>
+              {showModal && <ContactUs closeModal={() => setShowModal(false)} contactId="specific-contact-id"/>}
+              <Link to="/services" className='navbtn'>Services</Link>
             </Nav>
-          </Navbar.Collapse>
-
-          <Navbar.Collapse className="justify-content-end">
-            {isLoggedIn ? (
-              <>
-                <div className="three-bar-menu">
-                  <Dropdown as={ButtonGroup}>
-                    <Dropdown.Toggle variant="" id="dropdown-basic">
-                      {userInfo ? (
-                        <Image src={`https://ui-avatars.com/api/?name=${userInfo.name}&background=random`} width={50} height={50} roundedCircle className='Userpicture' />
-                      ) : (
-                        <Image src={`https://ui-avatars.com/api/?name=${email}&background=random`} width={50} height={50} roundedCircle className='Userpicture' />
-                      )}
-                    </Dropdown.Toggle>
-                    <Image src={menu_logo} onClick={handleShow} width={50} height={50} className='mt-2 barmenu' />
-                    <Dropdown.Menu>
-                      <Dropdown.Item href='/profile'>
-                         Profile
-                      </Dropdown.Item>
-                       <Dropdown.Item href='/upload'>
-                         Upload
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={handleLogout}>
-                         Logout
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </div>
-              </>
-            ) : (
-              <>
-                <Button variant="outline-primary" className='loginbtn' onClick={() => setShowLoginModal(true)}>Log In</Button>
-                <Button variant="outline-primary active" className='signUpbtn' onClick={() => setShowSignupModal(true)}>Sign Up</Button>
-              </>
-            )}
+            <Nav>
+              {isLoggedIn ? (
+                <Dropdown as={ButtonGroup}>
+                  <Dropdown.Toggle variant="" id="dropdown-basic">
+                    <Image src={`https://ui-avatars.com/api/?name=${userInfo ? userInfo.name : email}&background=random`} width={50} height={50} roundedCircle className='userimage' />
+                    <Image src={menu_logo} width={40} className='menubtn' onClick={handleShow}/>
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href='/profile'>Profile</Dropdown.Item>
+                    <Dropdown.Item href='/upload'>Upload</Dropdown.Item>
+                    <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                
+              ) : (
+                <>
+                  <Button variant="outline-primary" className='loginbtn' onClick={() => setShowLoginModal(true)}>Log In</Button>
+                  <Button variant="outline-primary active" className='signUpbtn' onClick={() => setShowSignupModal(true)}>Sign Up</Button>
+                </>
+              )}
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
-      {/* Login Modal */}
+      <Offcanvas show={show} onHide={handleClose} placement="end" className="sidebarright">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Col>
+            <Form>
+              <Form.Group controlId="formSearch" className="search-group">
+                <IoSearch className="search-icon" fontSize={24} />
+                <Form.Control type="text" placeholder="Search" className="search-input" />
+              </Form.Group>
+            </Form>
+          </Col>
+          <Nav className="flex-column">
+            <Nav.Link href="#home"><RiHome2Line size={24} className='mb-1' /> Modals</Nav.Link>
+            <Nav.Link href="#artify"><PiUploadSimpleBold size={24} className='mb-1' /> Uploads</Nav.Link>
+            <Nav.Link href="#contact"><CgProfile size={24} className='mb-1' /> Profile</Nav.Link>
+            {isLoggedIn && (
+              <Nav.Link onClick={handleLogout}><MdOutlineLogout size={24} className='mb-1' /> Log out</Nav.Link>
+            )}
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
+
       <Modal show={showLoginModal} onHide={() => setShowLoginModal(false)} className='customm-modal'>
         <Container>
           <Modal.Header closeButton>
             <Modal.Title>Log In</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className='modal-body'>
-              <Form onSubmit={handleSubmit}>
-                <Row>
-                  <Image src={Logo} className='modal-logo' />
-                </Row>
-                <Row className='mt-5'><h4>Log In</h4></Row>
-
-                <Row className='mt-5'>
-                  <Col lg={6} className=''>
-                    <Button variant="" className="w-100 googleBtn text-black">
-                      <FaGoogle fontSize={24} color='black' className='mb-1 gglbtn' />Log in With Google
-                    </Button>
-                  </Col>
-                  <Col lg={6} className=''>
-                    <Button variant="" className="w-100 facebookBtn text-black">
-                      <FaFacebook fontSize={24} color='black' className='mb-1 fbbtn' />Log in With Facebook
-                    </Button>
-                  </Col>
-                  <Row>
-                    <Col lg={4}></Col>
-                    <Col className='orcol ' lg={4} >or</Col>
-                    <Col lg={4}></Col>
-                  </Row>
-                </Row>
-                <Container className='container-form'>
-                  <Row className='mt-5'>
-                    <Form.Group controlId="formBasicEmail">
-                      <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Email Id" name="email" className='placeholder' onChange={(e) => setEmail(e.target.value)} />
-                    </Form.Group>
-                  </Row>
-                  <Row>
-                    <Col lg={12} className='mt-5'>
-                      <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" name="password" className='placeholder' onChange={(e) => setPassword(e.target.value)} />
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                </Container>
-
-                <Row>
-                  <Col lg={12} className='logincol'>
-                    <Button variant="primary modal-login-btn" onClick={handleSignIn}>
-                      Log In
-                    </Button>
-                  </Col>
-                </Row>
-
-              </Form>
-            </div>
+            <Form>
+              <Image src={Logo} className='modal-logo'/>
+              <Button variant="" className="w-100 googleBtn text-black mt-2"><FaGoogle fontSize={24} className='mb-1' /><pre> </pre>Log in With Google</Button>
+              <Button variant="" className="w-100 facebookBtn text-black mt-3"><FaFacebook fontSize={24} className='mb-1' /><pre>   </pre>Log in With Facebook</Button>
+              <div className='text-center mt-3'>or</div>
+              <Form.Group controlId="formBasicEmail" className=''>
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Email Id" className='placeholder' onChange={(e) => setEmail(e.target.value)} />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword" className='mt-3'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" className='placeholder' onChange={(e) => setPassword(e.target.value)} />
+              </Form.Group>
+              <Button variant="primary modal-login-btn mt-3" onClick={handleSignIn}>Log In</Button>
+            </Form>
           </Modal.Body>
         </Container>
       </Modal>
 
-      {/* Signup Modal */}
       <Modal show={showSignupModal} onHide={() => setShowSignupModal(false)} className='customm-modal'>
         <Container>
           <Modal.Header closeButton>
             <Modal.Title>SIGN UP</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className='modal-body'>
-              <Form onSubmit={handleSubmit}>
-                <Row>
-                  <Image src={Logo} className='modal-logo' />
-                </Row>
-                <Row className='mt-5'><h4>SIGN UP</h4></Row>
-
-                <Row className='mt-5'>
-                  <Col lg={6} className=''>
-                    <Button variant="" className="w-100 googleBtn text-black">
-                      <FaGoogle fontSize={24} color='black' className='mb-1 gglbtn' />Sign up With Google
-                    </Button>
-                  </Col>
-                  <Col lg={6} className=''>
-                    <Button variant="" className="w-100 facebookBtn text-black">
-                      <FaFacebook fontSize={24} color='black' className='mb-1 Pbbtn' />Sign up With Facebook
-                    </Button>
-                  </Col>
-                  <Row>
-                    <Col lg={4}></Col>
-                    <Col className='orcol ' lg={4} >or</Col>
-                    <Col lg={4}></Col>
-                  </Row>
-                </Row>
-                <Container className='container-form'>
-                  <Row className='mt-5'>
-                    <Form.Group controlId="formBasicEmail">
-                      <Form.Label>Email</Form.Label>
-                      <Form.Control type="email" placeholder="Email Id" name="email" className='placeholder' onChange={(e) => setEmail(e.target.value)} />
-                    </Form.Group>
-                  </Row>
-                  <Row>
-                    <Col lg={12} className='mt-5'>
-                      <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" name="password" className='placeholder' onChange={(e) => setPassword(e.target.value)} />
-                      </Form.Group>
-                    </Col>
-                  </Row>
-                </Container>
-                <Form.Group controlId="formBasicCheckbox" className="mt-3 text-start tc">
-                  <Form.Check className="checkbx" type="checkbox" label="Creating an account means you’re ok with the terms and conditions" />
-                </Form.Group>
-
-                <Row>
-                  <Col lg={12} className='logincol'>
-                  <Button variant="primary modal-login-btn" type="submit">
-                      Sign Up
-                    </Button>
-                  </Col>
-                </Row>
-
-              </Form>
-            </div>
+            <Form>
+              <Image src={Logo} className='modal-logo' />
+              <Button variant="" className="w-100 googleBtn text-black mt-2"><FaGoogle fontSize={24} className='mb-1' />Sign up With Google</Button>
+              <Button variant="" className="w-100 facebookBtn text-black mt-3"><FaFacebook fontSize={24} className='mb-1' />Sign up With Facebook</Button>
+              <div className='text-center mt-3'>or</div>
+              <Form.Group controlId="formBasicEmail" className=''>
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Email Id" className='placeholder' onChange={(e) => setEmail(e.target.value)} />
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword" className='mt-3'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" className='placeholder' onChange={(e) => setPassword(e.target.value)} />
+              </Form.Group>
+              <Button variant="primary modal-login-btn mt-3" onClick={handleSignup}>Sign Up</Button>
+            </Form>
           </Modal.Body>
         </Container>
       </Modal>
 
-      {/* Profile Section */}
-      {isLoggedIn && (
-        <Profile userInfo={userInfo} />
+      {showModal && (
+        <EditFile
+          data={existingData}
+          onClose={() => setShowModal(false)}
+          onSubmit={handleFileEdit}
+        />
       )}
-
-      {/* EditFile Component */}
-      <EditFile
-        existingData={existingData}
-        handleFileEdit={handleFileEdit}
-      />
     </>
   );
 }

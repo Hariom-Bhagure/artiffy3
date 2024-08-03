@@ -21,6 +21,7 @@ const Upload = () => {
     });
     const [showDeleteModal, setShowDeleteModal] = useState(false); // State for showing delete confirmation modal
     const [fileToDelete, setFileToDelete] = useState(null); // State to keep track of the file to delete
+
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0]);
     };
@@ -32,9 +33,7 @@ const Upload = () => {
     };
 
     const handleFileEdit = (data) => {
-        console.log('Edited Data:');
         console.log('Edited Data:', data);
-        // Perform the file edit operation here
         setShowEditModal(false); // Close edit modal after saving changes
     };
 
@@ -74,12 +73,12 @@ const Upload = () => {
 
     return (
         <>
-            <div className="d-flex">
+            <div className="d-flex main-div-upload">
                 <NewSidebar />
-                <div className="main-content" style={{ marginLeft: '250px' }}>
-                    <Container>
+                <div className="main-content">
+                    <Container className='uploadcontainer'>
                         <Row className="my-4">
-                            <Col>
+                            <Col xs={12} md={8} lg={6}>
                                 <Button variant="primary" className='uploadfile1' onClick={() => setShowModal(true)}>
                                     <FiUpload fontSize={24} className='uploadbtnmini' />
                                     Upload New File
@@ -103,7 +102,7 @@ const Upload = () => {
 
                         <Row>
                             {uploadedFiles.map((file, index) => (
-                                <Col key={index} xs={12} md={4} lg={4} className="mb-4">
+                                <Col key={index} xs={12} md={6} lg={4} className="mb-4">
                                     <div className="preview-container">
                                         <div className="context-menu">
                                             <Dropdown>
@@ -161,28 +160,29 @@ const Upload = () => {
             </div>
 
             {/* Delete Confirmation Modal */}
-            <Modal show={showDeleteModal} onHide={handleDeleteCancel} centered >
-               
-                <Modal.Body className='deletemodal' >
-                <h4 className='modaltitle'>Are you sure?</h4>
-                    <p className='modalheading'>Are you sure you want to delete this file? This action cannot be undone.</p>
-
-                    <Row>
-                        <Col className='colbtncncl'>
-                    
-                    <Button variant="primary" onClick={handleDeleteCancel} className='footrbtncncl'>
-                        Cancel
-                    </Button>
-                    </Col>
-                    <Col >
-                    
-                    <Button variant="primary" onClick={handleDeleteConfirm} className='footorbtndlt'>
-                        Delete
-                    </Button>
-                    </Col>
-                    </Row>
+            <Modal show={showDeleteModal} onHide={handleDeleteCancel} centered>
+                <Modal.Body className='deletemodal'>
+                    <h4 className='modaltitle'>Are you sure?</h4>
+                    <p className='modalheading'>
+                        Are you sure you want to delete this file? This action cannot be undone.
+                    </p>
+                    <div className='footer-buttons'>
+                        <Button
+                            variant='primary'
+                            onClick={handleDeleteCancel}
+                            className='footrbtncncl'
+                        >
+                            Cancel
+                        </Button>
+                        <Button
+                            variant='primary'
+                            onClick={handleDeleteConfirm}
+                            className='footorbtndlt'
+                        >
+                            Delete
+                        </Button>
+                    </div>
                 </Modal.Body>
-                
             </Modal>
 
             {/* EditFile Modal */}

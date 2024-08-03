@@ -13,19 +13,19 @@ import Services from './components/Services';
 import Signup from './components/Signup';
 import TransitionWrapper from './components/TransitionWrapper';
 import Upload from './components/Upload';
+import Header from './components/pages/Header';
 
 function App() {
   return (
     <>
       <Router>
-        <Header2 />
+        <Header />
         <TransitionWrapper>
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/about" element={<AboutUsHeader />} />
             <Route path="/pricing" element={<PricingHeader />} />
-            <Route path="/contactus" element={<ContactUs />} />
             <Route path="/services" element={<Services />} />
             <Route path="/upload" element={<Upload />} />
             <Route path="/profile" element={<Profile />} />
