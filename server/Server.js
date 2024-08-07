@@ -52,11 +52,12 @@ app.post('/signup', (req, res) => {
       const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
       res.json({ token });
     })
+    console.log("kay kanala bhho ith paryant tr tu ala")
     .catch(err => res.status(500).json({ error: err.message }));
 });
 
 // ARmodal
-app.post('/armodal', (req, res) => {
+app.post('/armodal', (req, res) => {  
   const { title, description, file } = req.body;
   ARmodal.create({ title, description, file })
     .then(armodal => res.json(armodal))
@@ -73,6 +74,25 @@ app.post('/contactus', (req, res) => {
     .then(contacts => res.json(contacts))
     .catch(err => res.status(500).json({ error: err.message }));
 });
+
+// token validation after refresh
+
+app.get('/validate-token', (req, res) => {
+  const token = req.headers.authorization?.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).send('No token provided');
+  }
+
+  jwt.verify(token, 'Hariom_Bhagure', (err, decoded) => {
+    if (err) {
+      return res.status(401).send('Invalid token');
+    }
+
+    res.status(200).send('Token is valid');
+  });
+});
+
 
 app.listen(4000, () => {
   console.log("Server is running successfully on port 4000");

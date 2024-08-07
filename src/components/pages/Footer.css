@@ -1,74 +1,90 @@
-.container-main {
+/* Footer.css */
+footer {
+  background-color: #12151C; /* Dark background for footer */
+  color: #FFFFFF; /* White text color */
+  padding:  2rem; /* Adjust padding to provide spacing */
+  display: flex; /* Use flexbox for layout */
+  align-items: flex-start; /* Align items to the start */
+}
+
+.footer-content {
+  display: flex; /* Use flexbox for layout */
   width: 100%;
-  height: auto;
-  border: 0.5px solid #FFFFFF;
-  background: var(--Primary-Text, #12151C);
-  padding: 20px;
+  justify-content: space-between; /* Space between columns and logo */
+  flex-grow: 1; /* Allow content to grow */
+  margin-bottom: 100px;
 }
 
-.company, .solutions, .community {
-  margin: 20px 0;
+.logo {
+  width: 100px; /* Adjust logo size */
+  height: 100px; /* Maintain aspect ratio */
+}
+
+.link-columns {
+  display: flex; /* Use flexbox for link columns */
+  gap: 1  rem; /* Space between link columns */
+}
+
+.column {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+h5 {
   font-family: 'Readex Pro', sans-serif;
-  font-size: 20px;
+  margin-left: 15px;
+  font-size: 18px;
   font-weight: 700;
   color: #FFFFFF;
+  margin-bottom: 0.75rem; /* Reduced margin below headings */
 }
 
-.subheading, .subheadingC {
+.nav-link {
   font-family: 'Readex Pro', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: #FFFFFF;
+  line-height: 0.1;
+  font-size: 15px;
+  font-weight: 400;
+  color: #FFFFFF; /* Ensure nav links are white */
+  margin-bottom: 0.25rem; /* Reduce space between links */
 }
 
-
-.footerimage {
-  text-align: center;
-  padding-top: 20px;
-}
-
-@media (max-width: 992px) {
-  .company, .solutions, .community {
-    margin-left: 20px;
-    text-align: left;
-  }
-  .subheading, .subheadingC {
-    margin-left: 20px;
-    text-align: left;
-  }
-  .footerimage {
-    padding-left: 20px;
-  }
-}
-
-@media (min-width: 576px)and (max-width: 768px){
-  .company, .solutions, .community {
-    margin-left: 60px;
-    text-align: left;
-  }
-  .subheading, .subheadingC {
-    margin-left: 10px;
-    text-align: left;
-    padding-left: 40px;
-    font-size: 16px;
-  }
-  .footerimage {
-    padding-left: 10px;
-  }
+.nav-link:hover {
+  color: #007bff; /* Change link color on hover */
+  text-decoration: none; /* Remove underline */
 }
 
 @media (max-width: 576px) {
-  .company, .solutions, .community {
-    margin: 10px 0;
-    text-align: center;
+  footer {
+    flex-direction: column; /* Stack footer content vertically on small screens */
+    align-items: center; /* Center items on small screens */
+    padding: 1rem; /* Padding for small screens */
   }
-  .subheading, .subheadingC {
-    margin: 0px 0;
-    text-align: center;
-    padding-right: 50px;
-    font-size: 15px;
+
+  .footer-content {
+    flex-direction: column; /* Stack logo and links vertically on small screens */
+    align-items: center; /* Center items on small screens */
+    width: 100%;
   }
-  .footerimage {
-    text-align: center;
+
+  .logo {
+    margin: 0; /* Adjust margin for small screens */
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  .link-columns {
+    gap: 0.0rem; /* Reduce space between columns on small screens */
+  }
+
+  .nav-link {
+    margin-bottom: 0.2rem; /* Further reduce space between links */
+    font-size: 8px;
+
+  }
+
+  h5 {
+    font-size: 10px; /* Adjust heading size for small screens */
+    margin-bottom: 0.5rem; /* Adjust margin below headings */
   }
 }

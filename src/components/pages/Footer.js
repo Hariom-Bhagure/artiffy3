@@ -1,46 +1,47 @@
 import React from 'react';
 import { Container, Row, Col, Nav } from 'react-bootstrap';
 import "./Footer.css";
-import Logo from "../../assets/Logo/footor_Logo.png";
+import Logo from "../../assets/Logo/footer_Logo.png";
 
 function Footer() {
   return (
-    <footer className="">
-      <Container className='container-main container-fluid'>
-        <Row>
-          <Col xs={12} md={1} className='footerimage'>
-            <img src={Logo} alt="Logo" width="100" height="100" />
-          </Col>
-          <Col xs={12} md={3} className='colm'>
-            <h5 className='company'>Company</h5>
-            <Nav className="flex-column subheading">
-              <Nav.Link href="#about">About us</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <Nav.Link href="#terms">Terms & Conditions</Nav.Link>
-              <Nav.Link href="#privacy">Privacy Policy</Nav.Link>
-              <Nav.Link href="#refund">Refund Policy</Nav.Link>
-            </Nav>
-          </Col>
-          <Col xs={12} md={4}>
-            <h5 className='solutions'>Solutions</h5>
-            <Nav className="flex-column subheading">
-              <Nav.Link href="#product">Product</Nav.Link>
-              <Nav.Link href="#brand">Brands & Businesses</Nav.Link>
-              <Nav.Link href="#agencies">Agencies</Nav.Link>
-              <Nav.Link href="#creators">Creators & Freelancers</Nav.Link>
-              <Nav.Link href="#casestudies">Case Studies</Nav.Link>
-            </Nav>
-          </Col>
-          <Col xs={12} md={4}>
-            <h5 className='community'>Community</h5>
-            <Nav className="flex-column subheadingC">
-              <Nav.Link href="#forum">Discussion Forum</Nav.Link>
-              <Nav.Link href="#blog">Blog</Nav.Link>
-              <Nav.Link href="#careers">Careers</Nav.Link>
-              <Nav.Link href="#contactus">Contact Us</Nav.Link>
-            </Nav>
-          </Col>
-        </Row>
+    <footer>
+      <Container>
+        <div className="footer-content">
+          <div className="link-columns">
+          <img src={Logo} alt="Logo" className="logo" />
+            <div className="column">
+              <h5 className="font-weight-bold">Company</h5>
+              <Nav className="flex-column">
+                <Nav.Link href="#about" className="text-white">About us</Nav.Link>
+                <Nav.Link href="#pricing" className="text-white">Pricing</Nav.Link>
+                <Nav.Link href="#terms" className="text-white">Terms&Conditions</Nav.Link>
+                <Nav.Link href="#privacy" className="text-white">Privacy Policy</Nav.Link>
+                <Nav.Link href="#refund" className="text-white">Refund Policy</Nav.Link>
+              </Nav>
+            </div>
+            <div className="column">
+              <h5 className="font-weight-bold">Solutions</h5>
+              <Nav className="flex-column">
+                <Nav.Link href="#product" className="text-white">Product</Nav.Link>
+                <Nav.Link href="#brand" className="text-white">Brands&Businesses</Nav.Link>
+                <Nav.Link href="#agencies" className="text-white">Agencies</Nav.Link>
+                <Nav.Link href="#creators" className="text-white">Creators&Freelancers</Nav.Link>
+                <Nav.Link href="#casestudies" className="text-white">Case Studies</Nav.Link>
+              </Nav>
+            </div>
+            <div className="column">
+              <h5 className="font-weight-bold">Community</h5>
+              <Nav className="flex-column">
+                <Nav.Link href="#forum" className="text-white">DiscussionForum</Nav.Link>
+                <Nav.Link href="#blog" className="text-white">Blog</Nav.Link>
+                <Nav.Link href="#careers" className="text-white">Careers</Nav.Link>
+                <Nav.Link href="#contactus" className="text-white">Contact Us</Nav.Link>
+              </Nav>
+            </div>
+          </div>
+         
+        </div>
       </Container>
     </footer>
   );

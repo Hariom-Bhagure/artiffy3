@@ -14,11 +14,11 @@
     font-weight: 400;
     line-height: 25px;
     text-align: left;
-    -webkit-text-fill-color: var(--Accent-2, #1A436A);
+    color: var(--Accent-2, #1A436A);
 }
 
 .Image {
-    width: 80%;
+    width: 100%; /* Ensure image takes full width of column */
     height: auto;
     border-radius: 12px;
 }
@@ -40,7 +40,6 @@
     }
     .Image {
         width: 100%;
-        height: auto;
         margin: 0 auto;
     }
 }

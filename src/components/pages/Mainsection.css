@@ -1,9 +1,10 @@
 /* General Styles */
 .VideoIntro {
-  max-width:866px;
+  max-width: 866px;
   height: 564px;
-  border-radius   : 12px;
+  border-radius: 12px;
   opacity: 1;
+  margin-right: 10px;
 }
 
 h1 {
@@ -25,15 +26,31 @@ p {
 }
 
 .getbtn1 {
-  width: 248px;
-  height: 63px;
+  width: 200px; /* Reduced width */
+  height: 50px; /* Reduced height */
   border-radius: 5px;
   font-family: 'Inter', sans-serif;
-  font-size: 20px;
+  font-size: 16px; /* Reduced font size */
   font-weight: 700;
   text-align: center;
   color: #FFFFFF;
   background-color: var(--Primary-Background, #007bff);
+  border: none; /* Ensure no border */
+  display: inline-flex; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.getbtn1:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.getbtn1:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Custom focus outline */
 }
 
 .mycontainer {
@@ -46,6 +63,12 @@ p {
 }
 
 /* Responsive Styles */
+@media (min-width: 768px) {
+  .VideoIntro {
+    max-width: 866px;
+    height: auto;
+  }
+}
 
 /* For Small Devices (up to 576px) */
 @media (max-width: 576px) {
@@ -63,9 +86,9 @@ p {
     max-width: 100%;
   }
   .getbtn1 {
-    width: 148px;
-    height: 48px;
-    font-size: 16px;
+    width: 150px; /* Further reduced width */
+    height: 40px; /* Further reduced height */
+    font-size: 14px; /* Further reduced font size */
   }
   .VideoIntro {
     width: 100%;
@@ -87,11 +110,17 @@ p {
     font-size: 20px;
     max-width: 100%;
   }
+  .getbtn1 {
+    width: 180px; /* Reduced width */
+    height: 45px; /* Reduced height */
+    font-size: 15px; /* Reduced font size */
+  }
 }
 
 /* For Larger Mobile Devices (576px to 768px) */
 @media (min-width: 576px) and (max-width: 768px) {
-  .main-container{
+  .main-container {
+    /* No additional styles */
   }
   .VideoIntro {
     width: 100%;
@@ -108,8 +137,8 @@ p {
     line-height: 28px;
   }
   .getbtn1 {
-    width: 200px;
-    height: 54px;
-    font-size: 18px;
+    width: 180px; /* Reduced width */
+    height: 45px; /* Reduced height */
+    font-size: 15px; /* Reduced font size */
   }
 }

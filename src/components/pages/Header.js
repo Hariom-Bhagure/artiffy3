@@ -18,8 +18,6 @@ import './Header.css';
 function Header2() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const [expanded, setExpanded] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
@@ -60,33 +58,26 @@ function Header2() {
       toast.error('Please fill in all fields');
       return;
     }
-    const handleSignup = (e) => {
-      e.preventDefault();
-      if (!email || !password) {
-        toast.error('Please fill in all fields');
-        return;
-      }
-      axios.post('http://localhost:4000/signup', { email, password })
-        .then(result => {
-          const { token } = result.data;
-          if (token) {
-            localStorage.setItem('userToken', token); // Store token in localStorage
-            console.log(token)
-            setShowLoginModal(false);
-            setShowSignupModal(false);
-            setIsLoggedIn(true);
-            navigate('/');
-            toast.success('Signup successful!');
-          } else {
-            toast.error('Signup failed. No token received.');
-          }
-        })
-        .catch(err => {
-          console.log(err);
-          toast.error('Signup failed. Please try again.');
-        });
-    }
-    
+    axios.post('http://localhost:4000/signup', { email, password })
+      .then(result => {
+        const { token } = result.data;
+        if (token) {
+          localStorage.setItem('userToken', token); // Store token in localStorage
+          console.log(token)
+          
+          setShowLoginModal(false);
+          setShowSignupModal(false);
+          setIsLoggedIn(true);
+          navigate('/');
+          toast.success('Signup successful!');
+        } else {
+          toast.error('Signup failed. No token received.');
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error('Signup failed. Please try again.');
+      });
   }
 
   const handleSignIn = (e) => {
@@ -100,6 +91,7 @@ function Header2() {
         const { token } = result.data;
         if (token) {
           localStorage.setItem('userToken', token); // Store token in localStorage
+          window.localStorage.setItem("isLoggedIn",true);
           setShowLoginModal(false);
           setIsLoggedIn(true);
           navigate("/");
@@ -165,7 +157,7 @@ function Header2() {
                 <Dropdown as={ButtonGroup}>
                   <Dropdown.Toggle variant="" id="dropdown-basic">
                     <Image src={`https://ui-avatars.com/api/?name=${userInfo ? userInfo.name : email}&background=random`} width={50} height={50} roundedCircle className='userimage' />
-                    <Image src={menu_logo} width={40} className='menubtn' onClick={handleShow}/>
+                    <Image src={menu_logo} width={40} className='menubtn' onClick={() => setShow(true)} />
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item href='/profile'>Profile</Dropdown.Item>
@@ -173,7 +165,6 @@ function Header2() {
                     <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
-                
               ) : (
                 <>
                   <Button variant="outline-primary" className='loginbtn' onClick={() => setShowLoginModal(true)}>Log In</Button>
@@ -185,7 +176,7 @@ function Header2() {
         </Container>
       </Navbar>
 
-      <Offcanvas show={show} onHide={handleClose} placement="end" className="sidebarright">
+      <Offcanvas show={show} onHide={() => setShow(false)} placement="end" className="sidebarright">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Menu</Offcanvas.Title>
         </Offcanvas.Header>
@@ -217,10 +208,16 @@ function Header2() {
           <Modal.Body>
             <Form>
               <Image src={Logo} className='modal-logo'/>
-              <Button variant="" className="w-100 googleBtn text-black mt-2"><FaGoogle fontSize={24} className='mb-1' /><pre> </pre>Log in With Google</Button>
-              <Button variant="" className="w-100 facebookBtn text-black mt-3"><FaFacebook fontSize={24} className='mb-1' /><pre>   </pre>Log in With Facebook</Button>
+              <Button variant="" className="w-100 googleBtn text-black mt-2">
+                <FaGoogle fontSize={24} className='mb-1' />
+                <span>Log in With Google</span>
+              </Button>
+              <Button variant="" className="w-100 facebookBtn text-black mt-3">
+                <FaFacebook fontSize={24} className='mb-1' />
+                <span>Log in With Facebook</span>
+              </Button>
               <div className='text-center mt-3'>or</div>
-              <Form.Group controlId="formBasicEmail" className=''>
+              <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" placeholder="Email Id" className='placeholder' onChange={(e) => setEmail(e.target.value)} />
               </Form.Group>
@@ -237,15 +234,25 @@ function Header2() {
       <Modal show={showSignupModal} onHide={() => setShowSignupModal(false)} className='customm-modal'>
         <Container>
           <Modal.Header closeButton>
-            <Modal.Title>SIGN UP</Modal.Title>
+            <Modal.Title>
+              SIGN UP
+            </Modal.Title>
           </Modal.Header>
           <Modal.Body>
+          <div className='modal-logo-container'>
+                <Image src={Logo} className='modal-logo' />
+              </div>
             <Form>
-              <Image src={Logo} className='modal-logo' />
-              <Button variant="" className="w-100 googleBtn text-black mt-2"><FaGoogle fontSize={24} className='mb-1' />Sign up With Google</Button>
-              <Button variant="" className="w-100 facebookBtn text-black mt-3"><FaFacebook fontSize={24} className='mb-1' />Sign up With Facebook</Button>
+              <Button variant="" className="w-100 googleBtn text-black mt-2">
+                <FaGoogle fontSize={24} className='mb-1' />
+                <span>Sign up With Google</span>
+              </Button>
+              <Button variant="" className="w-100 facebookBtn text-black mt-3">
+                <FaFacebook fontSize={24} className='mb-1' />
+                <span>Sign up With Facebook</span>
+              </Button>
               <div className='text-center mt-3'>or</div>
-              <Form.Group controlId="formBasicEmail" className=''>
+              <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control type="email" placeholder="Email Id" className='placeholder' onChange={(e) => setEmail(e.target.value)} />
               </Form.Group>
@@ -253,19 +260,19 @@ function Header2() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" className='placeholder' onChange={(e) => setPassword(e.target.value)} />
               </Form.Group>
+              <div className='terms-checkbox'>
+                <Form.Check type="checkbox" id="termsCheckbox" />
+                <Form.Text>
+                  Creating an account means you’re ok with the <a href="/terms-and-conditions" className='terms-link'>Terms & Conditions</a>.
+                </Form.Text>
+              </div>
               <Button variant="primary modal-login-btn mt-3" onClick={handleSignup}>Sign Up</Button>
             </Form>
           </Modal.Body>
         </Container>
       </Modal>
 
-      {showModal && (
-        <EditFile
-          data={existingData}
-          onClose={() => setShowModal(false)}
-          onSubmit={handleFileEdit}
-        />
-      )}
+      <EditFile show={showModal} handleClose={() => setShowModal(false)} existingData={existingData} handleFileEdit={handleFileEdit} />
     </>
   );
 }

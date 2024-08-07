@@ -1,63 +1,28 @@
 /* General Styles */
-.aboutus {
-  font-family: 'Readex Pro', sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 60px;
-  color: var(--Accent-1, #3E2B6D);
-  text-align: left;
-  margin-bottom: 20px; /* Reduced margin */
-  width: 100%;
-}
-
-.welcome {
-  font-family: 'Readex Pro', sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 25px;
-  color: var(--Accent-2, #1A436A);
-  text-align: left;
-  margin-top: 10px; /* Reduced margin */
+.About-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .Image {
-  max-width:913px;
-  max-height: 564px;
-  border-radius: 12px;
+  max-width: 913px;
+  height: auto;
+  flex: 1; /* Allows the image column to take up available space */
+  margin-right: 20px; /* Space between image and text */
 }
 
 .main-col {
-  max-width: 564px;
-  margin: 0 auto;
-}
-
-.About-container {
-  width: 100%;
-  padding: 10px; /* Reduced padding */
+  flex: 1; /* Allows the text column to take up available space */
 }
 
 /* Responsive for Tablets */
 @media (max-width: 992px) {
-
-  .About-container{
-  }
-  .aboutus {
-    font-size: 36px;
-    text-align: center;
-    margin: 0 auto;
-  }
-  .welcome {
-    font-size: 18px;
-    text-align: center;
-    margin: 0 auto;
-  }
-  .main-col {
-    max-width: 100%;
-    margin: 0 auto;
+  .About-container {
+    flex-direction: column; /* Stack vertically for tablets */
   }
   .Image {
-    max-width: 100%;
-    margin: 0 auto;
+    margin-right: 0; /* Remove margin on small screens */
+    margin-bottom: 20px; /* Add space below image */
   }
 }
 
@@ -71,16 +36,10 @@
   .welcome {
     font-size: 16px;
     text-align: center;
-    max-width: 100%;
     margin: 0 auto;
   }
   .Image {
     max-width: 100%;
     margin: 0 auto;
-  }
-  .About-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }

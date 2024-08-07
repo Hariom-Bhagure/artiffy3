@@ -27,10 +27,9 @@
   margin-right: 40px;
   color: #000;
   font-weight: bold;
-  font-family: Inter;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24.2px;
+  font-family: Inter, sans-serif;
+  font-size: 16px; /* Adjusted to industry standard */
+  line-height: 24px; /* Adjusted for better readability */
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
@@ -53,10 +52,35 @@
   margin-left: 10px;
   margin-right: 10px;
   font-weight: bold;
+  font-size: 16px; /* Adjusted for consistency */
+  width: 200px; /* Set width */
+  height: 55px; /* Set height */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 15px; /* Inner padding */
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #007bff; /* Background color */
+  border: none; /* Remove border */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.loginbtn:hover, .signUpbtn:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.loginbtn:focus, .signUpbtn:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Custom focus outline */
 }
 
 .navbar-nav .nav-link {
   color: #000;
+  font-size: 16px; /* Consistent font size */
 }
 
 .navbar-nav .nav-link:hover {
@@ -93,11 +117,14 @@
 .customm-modal .modal-logo {
   width: 100px;
   height: 100px;
-  margin-left: 170px;
+  border: 0.5px;
+  border: 0.5px solid var(--Primary, #105DFB);
 }
-.customm-modal{
-  background-color:deepskyblue;
+
+.customm-modal {
+  background-color: deepskyblue;
 }
+
 .googleBtn, .facebookBtn {
   display: flex;
   align-items: center;
@@ -107,12 +134,13 @@
 
 .modal-login-btn {
   width: 100%;
+  font-size: 16px; /* Consistent with other buttons */
 }
 
 .modal-login-btn:hover {
   color: #fff;
 }
-/* Header.css */
+
 /* Header.css */
 .modal-backdrop {
   position: fixed;
@@ -121,7 +149,7 @@
   width: 100vw;
   height: 100vh;
   background-color: #87CEEB; /* Solid sky blue color */
-  opacity: 10; /* Fully opaque */
+  opacity: 1; /* Fully opaque */
   z-index: 1040; /* Ensure it's behind the modal content but in front of other content */
 }
 
@@ -130,8 +158,38 @@
   position: relative;
   z-index: 1050; /* Above the backdrop */
   background: white; /* Ensure content is readable */
+  font-size: 16px; /* Consistent font size */
 }
 
+/* Custom Header CSS */
+
+/* Style for input fields */
+input[type="email"], input[type="password"] {
+  border: 1px solid #ced4da; /* Light border color */
+  border-radius: 0.25rem; /* Slightly rounded corners */
+  padding: 0.5rem 0.75rem; /* Padding inside the input field */
+  background-color: #ffffff; /* White background color */
+  color: #495057; /* Text color */
+  font-size: 16px; /* Consistent font size */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for border and shadow */
+}
+
+/* Style for input fields on focus */
+input[type="email"]:focus, input[type="password"]:focus {
+  border-color: #80bdff; /* Blue border color on focus */
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25); /* Blue shadow on focus */
+}
+
+/* Style for input fields on hover */
+input[type="email"]:hover, input[type="password"]:hover {
+  border-color: #007bff; /* Blue border color on hover */
+}
+
+/* Fix for cursor issue */
+input[type="email"], input[type="password"] {
+  cursor: text; /* Default text cursor */
+}
 
 /* Responsive for Tablets and Mobile Devices */
 @media (max-width: 992px) {
@@ -151,6 +209,8 @@
 
   .loginbtn, .signUpbtn {
     margin: 5px 0;
+    width: 100%; /* Ensure consistent width */
+    height: 55px; /* Ensure consistent height */
   }
 
   .search-group {
@@ -161,7 +221,7 @@
     margin: 0 0 10px 0;
   }
 
-  .search-input {
+  .search-input { 
     width: 100%;
   }
 
@@ -195,6 +255,8 @@
 
   .loginbtn, .signUpbtn {
     margin: 5px 0;
+    width: 100%; /* Ensure consistent width */
+    height: 55px; /* Ensure consistent height */
   }
 
   .sidebarright {
